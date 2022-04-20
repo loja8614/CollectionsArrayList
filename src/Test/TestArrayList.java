@@ -64,15 +64,16 @@ public class TestArrayList extends TestCase {
     public void testIterator(){
         tests();
         arrayList.add("Element01");
+        arrayList.add("Element02");
 
-        boolean isDifferent=false;
+        ArrayList<String> lstTest = new ArrayList<String>();
         Iterator iter = arrayList.iterator();
 
         while (iter.hasNext()){
-            if(!iter.next().equals("Element01"))
-                isDifferent=true;
+            lstTest.add(iter.next().toString());
         }
-        assertTrue(!isDifferent);
+
+        assertTrue(lstTest.getAt(0).equals("Element01") && lstTest.getAt(1).equals("Element02"));
     }
 
 

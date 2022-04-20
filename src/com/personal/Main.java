@@ -1,9 +1,42 @@
 package com.personal;
-//import java.util.LinkedList;
+
 public class Main {
 
     public static void main(String[] args) {
+/*
+        LinkedList<String> lnkList = new LinkedList<String>();
+        lnkList.add("Elemento 1");
+        lnkList.add("Elemento 2");
+        lnkList.add("Elemento 3");
 
+        String strVar = lnkList.getAt(2);
+        System.out.println("GET AT strVar = " + strVar);
+
+        lnkList.setAt(0,"Elemento con Cambio");
+        strVar = lnkList.getAt(0);
+        System.out.println("GET AT strVar = " + strVar);
+
+        lnkList.insert(3,"Elemento 4");
+        System.out.println("Tamaño despues de Elemento 4" + lnkList.size);
+
+        strVar = lnkList.getAt(3);
+        System.out.println("GET AT strVar = " + strVar);
+
+
+        Iterator listIter = lnkList.iterator();
+        while(listIter.hasNext()){
+            System.out.println(listIter.next());
+        }
+        lnkList.remove(2);
+        System.out.println("Tamaño despues de borrar indice 2" + lnkList.size);
+
+        lnkList.add("Elemento 3");
+        System.out.println("Tamaño despues agregar elemento" + lnkList.size);
+
+        lnkList.removeAll();
+        System.out.println("Tamaño despues eliminar todo" + lnkList.size);
+*/
+/*
         ArrayList <String> lst= new ArrayList<String>();
         lst.add("Elemento1");
         lst.add("Elemento2");
@@ -31,29 +64,6 @@ public class Main {
 
         lst.removeAll();
         System.out.println("Size: " + lst.size());
-
-/*
-        LinkedList<String> lklist= new LinkedList<String>();
-        lklist.add("Elemento LnkList01");
-        lklist.insert(1,"Elemento LnkList02");
-        //String varString = lklist.getAt(0);
-        lklist.setAt(2,"Elemento lnklist03");
-        //String varString2 = lklist.getAt(2);
-        //lklist.remove(2);
-        //lklist.removeAll();
-
-        Iterator iter = new lklist.iterator();
-
-
-        while (iter.hasNext()){
-            System.out.println(iter.next());
-        }
-        lklist.remove(3);
-        System.out.println("tamaño de linked list:" + lklist.size);
-        iter = lklist.iterator();
-        while (iter.hasNext()){
-            System.out.println(iter.next());
-        }
 
 */
 
