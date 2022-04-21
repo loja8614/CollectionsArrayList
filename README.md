@@ -1,5 +1,5 @@
 # CollectionsArrayList
- ![Alt text](https://github.com/loja8614/CollectionsArrayList/CollectionsArrayList/tree/images/ClassDiagram.jpg?raw=true)      
+ ![Alt text](https://github.com/loja8614/CollectionsArrayList/blob/main/images/ClassDiagram-.jpg?raw=true)      
 
                                                          ,----------------------------------------.                                            
                                                          |List                                    |                                            
