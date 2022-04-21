@@ -1,18 +1,21 @@
-package com.personal;
+package com.personal.list.linkedlist;
 
-import java.util.Collection;
+import com.personal.list.Iterator;
+import com.personal.list.List;
 
-public class LinkedList<String> implements List<String> {
+public class LinkedList implements List {
 
     transient int size = 0;
-    transient Node<String> first;
-    transient Node<String> last;
+    transient Node first;
+    transient Node last;
     protected transient int modCount = 0;
 
-    public LinkedList() {    }
+    public LinkedList() {
+    }
+
     public void add(String element) {
-        final Node<String> l = last;
-        final Node<String> newNode = new Node<String>(l, element, null);
+        final Node l = last;
+        final Node newNode = new Node(l, element, null);
         last = newNode;
         if (l == null)
             first = newNode;
@@ -23,7 +26,7 @@ public class LinkedList<String> implements List<String> {
     }
 
     public void insert(int index, String element) {
-        if(index >= 0 && index <= size+1){
+        if (index >= 0 && index <= size + 1) {
             if (index == size)
                 linkLast(element);
             else
@@ -37,7 +40,7 @@ public class LinkedList<String> implements List<String> {
 
 
     public void setAt(int index, String element) {
-        Node<String> x = node(index);
+        Node x = node(index);
         String oldVal = x.item;
         x.item = element;
     }
@@ -46,9 +49,10 @@ public class LinkedList<String> implements List<String> {
     public void remove(int index) {
         unlink(node(index));
     }
+
     public void removeAll() {
-        for (Node<String> x = first; x != null; ) {
-            Node<String> next = x.next;
+        for (Node x = first; x != null; ) {
+            Node next = x.next;
             x.item = null;
             x.next = null;
             x.prev = null;
@@ -66,12 +70,13 @@ public class LinkedList<String> implements List<String> {
     public Iterator iterator() {
         return new ListIterator();
     }
-    private class ListIterator implements Iterator<String> {
-        private Node<String> lastReturned;
-        private Node<String> next;
+
+    private class ListIterator implements Iterator {
+        private Node lastReturned;
+        private Node next;
         private int nextIndex;
         private int expectedModCount = modCount;
-        int index=0;
+        int index = 0;
 
         ListIterator() {
             this.expectedModCount = LinkedList.this.modCount;
@@ -95,38 +100,40 @@ public class LinkedList<String> implements List<String> {
         }
     }
 
-    private static class Node<String> {
+    private static class Node {
         String item;
-        Node<String> next;
-        Node<String> prev;
+        Node next;
+        Node prev;
 
-        Node(Node<String> prev, String element, Node<String> next) {
+        Node(Node prev, String element, Node next) {
             this.item = element;
             this.next = next;
             this.prev = prev;
         }
     }
-    Node<String> node(int index) {
+
+    Node node(int index) {
 
         if (index < (size >> 1)) {
-            Node<String> x = first;
+            Node x = first;
             for (int i = 0; i < index; i++)
                 x = x.next;
             return x;
         } else {
-            Node<String> x = last;
+            Node x = last;
             for (int i = size - 1; i > index; i--)
                 x = x.prev;
             return x;
         }
     }
-    Node<String> nodelnklist(int index) {
+
+    Node nodelnklist(int index) {
         LinkedList.Node x;
         int i;
         if (index < this.size >> 1) {
             x = this.first;
 
-            for(i = 0; i < index; ++i) {
+            for (i = 0; i < index; ++i) {
                 x = x.next;
             }
 
@@ -134,16 +141,17 @@ public class LinkedList<String> implements List<String> {
         } else {
             x = this.last;
 
-            for(i = this.size - 1; i > index; --i) {
+            for (i = this.size - 1; i > index; --i) {
                 x = x.prev;
             }
 
             return x;
         }
     }
+
     void linkLast(String e) {
-        final Node<String> l = last;
-        final Node<String> newNode = new Node<String>(l, e, null);
+        final Node l = last;
+        final Node newNode = new Node(l, e, null);
         last = newNode;
         if (l == null)
             first = newNode;
@@ -152,10 +160,11 @@ public class LinkedList<String> implements List<String> {
         size++;
         modCount++;
     }
-    void linkBefore(String e, Node<String> succ) {
+
+    void linkBefore(String e, Node succ) {
         // assert succ != null;
-        final Node<String> pred = succ.prev;
-        final Node<String> newNode = new Node<String>(pred, e, succ);
+        final Node pred = succ.prev;
+        final Node newNode = new Node(pred, e, succ);
         succ.prev = newNode;
         if (pred == null)
             first = newNode;
@@ -164,10 +173,11 @@ public class LinkedList<String> implements List<String> {
         size++;
         modCount++;
     }
-    void unlink(Node<String> x) {
+
+    void unlink(Node x) {
         final String element = x.item;
-        final Node<String> next = x.next;
-        final Node<String> prev = x.prev;
+        final Node next = x.next;
+        final Node prev = x.prev;
 
         if (prev == null) {
             first = next;

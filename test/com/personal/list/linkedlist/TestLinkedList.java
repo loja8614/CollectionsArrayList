@@ -1,15 +1,15 @@
-package Test;
+package com.personal.list.linkedlist;
 
-import com.personal.Iterator;
-import com.personal.LinkedList;
+import com.personal.list.Iterator;
+import com.personal.list.linkedlist.LinkedList;
 import junit.framework.TestCase;
 
 public class TestLinkedList extends TestCase {
-    private LinkedList<String> lnkList;
-    private Iterator<String> iterator;
+    private LinkedList lnkList;
+    private Iterator iterator;
 
     public void tests (){
-        lnkList=new LinkedList<String>();
+        lnkList=new LinkedList();
     }
     public void testAdd(){
         tests();
@@ -66,7 +66,7 @@ public class TestLinkedList extends TestCase {
         lnkList.add("Element01");
         lnkList.add("Element02");
 
-        LinkedList<String> lnkListTest = new LinkedList<String>();
+        LinkedList lnkListTest = new LinkedList();
 
 
         Iterator iter = lnkList.iterator();

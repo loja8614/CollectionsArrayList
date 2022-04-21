@@ -1,5 +1,10 @@
 package com.personal;
 
+
+import com.personal.list.Iterator;
+import com.personal.list.arraylist.ArrayList;
+
+
 public class Main {
 
     public static void main(String[] args) {
@@ -36,20 +41,30 @@ public class Main {
         lnkList.removeAll();
         System.out.println("Tamaño despues eliminar todo" + lnkList.size);
 */
-/*
-        ArrayList <String> lst= new ArrayList<String>();
+
+        ArrayList lst = new ArrayList();
         lst.add("Elemento1");
         lst.add("Elemento2");
         lst.add("Elemento3");
         lst.add("Elemento4");
         lst.insert(4,"Elemento5");
-        System.out.println("Elemento del indice 0" + lst.getAt(0)) ;
+        lst.setAt(1,"Elemento02Corr");
+
+
         Iterator iter = lst.iterator();
 
         while (iter.hasNext()){
             System.out.println(iter.next());
         }
+        /*
+        lst.remove(0);
+        lst.remove(3);
+        lst.removeAll();
+        lst.size();
 
+        */
+
+/*
         lst.setAt(1,"Elemento02Corr");
         System.out.println("Elemento del indice 1" + lst.getAt(1)) ;
 

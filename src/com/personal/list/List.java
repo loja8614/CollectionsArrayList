@@ -1,7 +1,7 @@
-package com.personal;
+package com.personal.list;
 
 
-public interface List<String> {
+public interface List {
     /**
      * Inserts the specified element  in this list
      * @param element element to be inserted
@@ -44,8 +44,4 @@ public interface List<String> {
      */
     int size();
     Iterator iterator();
-
-
-
-
 }
