@@ -1,7 +1,6 @@
 package com.personal.list.linkedlist;
 
 import com.personal.list.Iterator;
-import com.personal.list.linkedlist.LinkedList;
 import junit.framework.TestCase;
 
 public class TestLinkedList extends TestCase {

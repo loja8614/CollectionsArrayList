@@ -5,62 +5,56 @@ import com.personal.list.List;
 
 public class LinkedList implements List {
 
-    transient int size = 0;
-    transient Node first;
-    transient Node last;
-    protected transient int modCount = 0;
-
+    private int size = 0;
+    private Node first;
+    private Node last;
     public LinkedList() {
+
     }
 
     public void add(String element) {
-        final Node l = last;
-        final Node newNode = new Node(l, element, null);
-        last = newNode;
-        if (l == null)
-            first = newNode;
-        else
-            l.next = newNode;
-        size++;
-        modCount++;
+        linkLast(element);
     }
 
     public void insert(int index, String element) {
         if (index >= 0 && index <= size + 1) {
-            if (index == size)
+            if (index == size) {
                 linkLast(element);
-            else
-                linkBefore(element, node(index));
+            } else {
+                Node nodeInsert = getNode(index);
+                linkBefore(element, nodeInsert);
+            }
         }
     }
 
     public String getAt(int index) {
-        return node(index).item;
+        return getNode(index).item;
     }
-
 
     public void setAt(int index, String element) {
-        Node x = node(index);
-        String oldVal = x.item;
-        x.item = element;
+        Node nodeSetAt = getNode(index);
+        String oldVal = nodeSetAt.item;
+        nodeSetAt.item = element;
     }
 
-
     public void remove(int index) {
-        unlink(node(index));
+        Node nodeRemove = getNode(index);
+        unlink(nodeRemove);
     }
 
     public void removeAll() {
-        for (Node x = first; x != null; ) {
-            Node next = x.next;
-            x.item = null;
-            x.next = null;
-            x.prev = null;
-            x = next;
+
+        Node startNode = first;
+        while (startNode != null) {
+            Node next = startNode.next;
+            startNode.item = null;
+            startNode.next = null;
+            startNode.prev = null;
+            startNode = next;
         }
-        first = last = null;
+        last = null;
+        first = null;
         size = 0;
-        modCount++;
     }
 
     public int size() {
@@ -75,13 +69,10 @@ public class LinkedList implements List {
         private Node lastReturned;
         private Node next;
         private int nextIndex;
-        private int expectedModCount = modCount;
         int index = 0;
 
         ListIterator() {
-            this.expectedModCount = LinkedList.this.modCount;
-            this.next = index == LinkedList.this.size ? null : LinkedList.this.nodelnklist(index);
-            this.nextIndex = index;
+            this.next = getNode(index);
         }
 
         public boolean hasNext() {
@@ -89,112 +80,73 @@ public class LinkedList implements List {
         }
 
         public String next() {
-            String strlastReturned = null;
+            String strReturned = null;
             if (hasNext()) {
-                strlastReturned = next.item;
-                lastReturned = next;
+                strReturned = next.item;
                 next = next.next;
+                lastReturned = next;
                 nextIndex++;
             }
-            return strlastReturned;
+            return strReturned;
         }
     }
 
-    private static class Node {
-        String item;
-        Node next;
-        Node prev;
-
-        Node(Node prev, String element, Node next) {
-            this.item = element;
-            this.next = next;
-            this.prev = prev;
-        }
-    }
-
-    Node node(int index) {
-
-        if (index < (size >> 1)) {
-            Node x = first;
-            for (int i = 0; i < index; i++)
-                x = x.next;
-            return x;
-        } else {
-            Node x = last;
-            for (int i = size - 1; i > index; i--)
-                x = x.prev;
-            return x;
-        }
-    }
-
-    Node nodelnklist(int index) {
-        LinkedList.Node x;
-        int i;
-        if (index < this.size >> 1) {
-            x = this.first;
-
-            for (i = 0; i < index; ++i) {
-                x = x.next;
-            }
-
-            return x;
-        } else {
-            x = this.last;
-
-            for (i = this.size - 1; i > index; --i) {
-                x = x.prev;
-            }
-
-            return x;
-        }
-    }
-
-    void linkLast(String e) {
-        final Node l = last;
-        final Node newNode = new Node(l, e, null);
+    private void linkLast(String element) {
+        Node nodeLast = last;
+        Node newNode = new Node(nodeLast, element, null);
         last = newNode;
-        if (l == null)
+        if (nodeLast == null)
             first = newNode;
         else
-            l.next = newNode;
+            nodeLast.next = newNode;
         size++;
-        modCount++;
     }
 
-    void linkBefore(String e, Node succ) {
-        // assert succ != null;
-        final Node pred = succ.prev;
-        final Node newNode = new Node(pred, e, succ);
-        succ.prev = newNode;
-        if (pred == null)
+    private void linkBefore(String element, Node nodeSuccessor) {
+        Node nodePredecessor = nodeSuccessor.prev;
+        Node newNode = new Node(nodePredecessor, element, nodeSuccessor);
+        nodeSuccessor.prev = newNode;
+        if (nodePredecessor == null)
             first = newNode;
         else
-            pred.next = newNode;
+            nodePredecessor.next = newNode;
         size++;
-        modCount++;
     }
 
-    void unlink(Node x) {
-        final String element = x.item;
-        final Node next = x.next;
-        final Node prev = x.prev;
+    private void unlink(Node nodeUnlink) {
+        Node next = nodeUnlink.next;
+        Node prev = nodeUnlink.prev;
 
         if (prev == null) {
             first = next;
         } else {
             prev.next = next;
-            x.prev = null;
+            nodeUnlink.prev = null;
         }
 
         if (next == null) {
             last = prev;
         } else {
             next.prev = prev;
-            x.next = null;
+            nodeUnlink.next = null;
         }
 
-        x.item = null;
+        nodeUnlink.item = null;
         size--;
-        modCount++;
+    }
+
+    Node getNode(int index) {
+        if (index < 1) {
+            Node newNode = first;
+            for (int i = 0; i < index; i++)
+                newNode = newNode.next;
+            return newNode;
+        } else {
+            Node newNode = last;
+            int tmpSize = size - 1;
+            for (int i = tmpSize; i > index; i--)
+                newNode = newNode.prev;
+            return newNode;
+        }
     }
 }
