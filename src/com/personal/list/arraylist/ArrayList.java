@@ -3,6 +3,7 @@ package com.personal.list.arraylist;
 import com.personal.list.Iterator;
 import com.personal.list.List;
 
+
 public class ArrayList implements List {
 
     private String[] elementData;
@@ -22,13 +23,25 @@ public class ArrayList implements List {
     }
 
     public void insert(int index, String element) {
-
         if (index > size || index < 0)
             System.out.println("IndexOutOfBoundsException --> Index: " + index + ", Size: " + size);
 
         if (this.size == this.elementData.length)
             grow(this.size * 2);
-        this.elementData[index] = element;
+
+        int newSize = this.size + 1;
+        String[] arrElements = new String[newSize];
+
+        for (int i = 0; i < newSize; i++) {
+            if (i != index && i < index)
+                arrElements[i] = this.elementData[i];
+            else if (i == index)
+                arrElements[i] = element;
+            else
+                arrElements[i] = this.elementData[i-1];
+        }
+
+        this.elementData = arrElements;
         this.size++;
     }
 
@@ -41,10 +54,13 @@ public class ArrayList implements List {
     }
 
     public void remove(int index) {
+
         int newSize = this.size - 1;
         String[] arrElements = new String[newSize];
+
+        int k = index == 0 ? 1 : 0;
         int j = 0;
-        for (int i = 0; i < this.size; i++) {
+        for (int i = k; i < this.size; i++) {
             if (index != i) {
                 arrElements[j] = this.elementData[i];
                 j++;
@@ -78,7 +94,7 @@ public class ArrayList implements List {
     }
 
     private class ArrayListIterator implements Iterator {
-        int cursor;       // index of next element to return
+        int cursor;
 
         ArrayListIterator() {
         }
@@ -89,14 +105,12 @@ public class ArrayList implements List {
         }
 
         public String next() {
-            int i = this.cursor;
-            if (i >= size)
+            if (this.cursor >= size)
                 System.out.println("NoSuchElement: The index is > size");
             String[] elementData = ArrayList.this.elementData;
-            this.cursor = i + 1;
-            return (String) elementData[i];
+            String strElement = elementData[this.cursor];
+            this.cursor++;
+            return strElement;
         }
-
-
     }
 }

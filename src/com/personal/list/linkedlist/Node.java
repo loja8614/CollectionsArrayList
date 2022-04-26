@@ -5,7 +5,7 @@ class Node {
     Node next;
     Node prev;
 
-    Node(Node prev, String element, Node next) {
+     Node(Node prev, String element, Node next) {
         this.item = element;
         this.next = next;
         this.prev = prev;

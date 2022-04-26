@@ -8,6 +8,7 @@ public class LinkedList implements List {
     private int size = 0;
     private Node first;
     private Node last;
+
     public LinkedList() {
 
     }
@@ -116,21 +117,18 @@ public class LinkedList implements List {
     private void unlink(Node nodeUnlink) {
         Node next = nodeUnlink.next;
         Node prev = nodeUnlink.prev;
-
         if (prev == null) {
             first = next;
         } else {
             prev.next = next;
             nodeUnlink.prev = null;
         }
-
         if (next == null) {
             last = prev;
         } else {
             next.prev = prev;
             nodeUnlink.next = null;
         }
-
         nodeUnlink.item = null;
         size--;
     }
@@ -138,8 +136,6 @@ public class LinkedList implements List {
     Node getNode(int index) {
         if (index < 1) {
             Node newNode = first;
-            for (int i = 0; i < index; i++)
-                newNode = newNode.next;
             return newNode;
         } else {
             Node newNode = last;
