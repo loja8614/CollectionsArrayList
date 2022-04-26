@@ -210,4 +210,17 @@ public class TestArrayList {
         String strElement1=lstTest.getAt(1);
         assertEquals( strElement1,"Element01");
     }
+    @Test
+    public void givenNewElementsInArrayList_whenIndexOutSize_thenSizeZero() {
+
+        //Given:
+        ArrayList arrayList = new ArrayList();
+
+        //When:
+        arrayList.insert(10,"Elemento0");
+
+        //Then:
+        int size=arrayList.size();
+        assertEquals( size,0);
+    }
 }

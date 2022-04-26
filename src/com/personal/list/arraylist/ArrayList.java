@@ -23,15 +23,16 @@ public class ArrayList implements List {
     }
 
     public void insert(int index, String element) {
-        if (index > size || index < 0)
+        if (index > size || index < 0) {
             System.out.println("IndexOutOfBoundsException --> Index: " + index + ", Size: " + size);
+        } else {
 
-        if (this.size == this.elementData.length)
-            grow(this.size * 2);
+            if (this.size == this.elementData.length)
+                grow(this.size * 2);
 
-        int newSize = this.size + 1;
-        String[] arrElements = new String[newSize];
-        //Opc1
+            int newSize = this.size + 1;
+            String[] arrElements = new String[newSize];
+            //Opc1
         /*
         for (int i = 0; i < newSize; i++) {
             if (i != index && i < index)
@@ -42,14 +43,15 @@ public class ArrayList implements List {
                 arrElements[i] = this.elementData[i - 1];
         }
         */
-        //Opc2
-        int remainingElements = size - index;
-        System.arraycopy(this.elementData, 0, arrElements, 0, index);
-        arrElements[index]=element;
-        System.arraycopy(this.elementData, index , arrElements, index+1, remainingElements);
+            //Opc2
+            int remainingElements = size - index;
+            System.arraycopy(this.elementData, 0, arrElements, 0, index);
+            arrElements[index] = element;
+            System.arraycopy(this.elementData, index, arrElements, index + 1, remainingElements);
 
-        this.elementData = arrElements;
-        this.size++;
+            this.elementData = arrElements;
+            this.size++;
+        }
     }
 
     public String getAt(int index) {
@@ -121,8 +123,6 @@ public class ArrayList implements List {
         }
 
         public String next() {
-            if (this.cursor >= size)
-                System.out.println("NoSuchElement: The index is > size");
             String[] elementData = ArrayList.this.elementData;
             String strElement = elementData[this.cursor];
             this.cursor++;
