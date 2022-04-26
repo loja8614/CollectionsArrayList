@@ -242,28 +242,4 @@ public class TestLinkedList  {
         String strElement1=lstTest.getAt(0);
         assertEquals(strElement1, "NewElement0");
     }
-
-
-
-/*
-
-
-    public void testIterator(){
-        tests();
-        lnkList.add("Element01");
-        lnkList.add("Element02");
-
-        LinkedList lnkListTest = new LinkedList();
-
-
-        Iterator iter = lnkList.iterator();
-
-        while (iter.hasNext()){
-            lnkListTest.add(iter.next().toString());
-        }
-        assertTrue(lnkListTest.getAt(0).equals("Element01") && lnkListTest.getAt(1).equals("Element02"));
-    }
-
-*/
-
 }

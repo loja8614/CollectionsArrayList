@@ -31,15 +31,22 @@ public class ArrayList implements List {
 
         int newSize = this.size + 1;
         String[] arrElements = new String[newSize];
-
+        //Opc1
+        /*
         for (int i = 0; i < newSize; i++) {
             if (i != index && i < index)
                 arrElements[i] = this.elementData[i];
             else if (i == index)
                 arrElements[i] = element;
             else
-                arrElements[i] = this.elementData[i-1];
+                arrElements[i] = this.elementData[i - 1];
         }
+        */
+        //Opc2
+        int remainingElements = size - index;
+        System.arraycopy(this.elementData, 0, arrElements, 0, index);
+        arrElements[index]=element;
+        System.arraycopy(this.elementData, index , arrElements, index+1, remainingElements);
 
         this.elementData = arrElements;
         this.size++;
@@ -57,15 +64,24 @@ public class ArrayList implements List {
 
         int newSize = this.size - 1;
         String[] arrElements = new String[newSize];
-
+        //Opc1
+        /*
         int k = index == 0 ? 1 : 0;
         int j = 0;
+
         for (int i = k; i < this.size; i++) {
             if (index != i) {
                 arrElements[j] = this.elementData[i];
                 j++;
-            }
+            }else
+                arrElements[j] = this.elementData[i-1];
         }
+        */
+        //Opc2
+        int remainingElements = size - (index + 1);
+        System.arraycopy(this.elementData, 0, arrElements, 0, index);
+        System.arraycopy(this.elementData, index + 1, arrElements, index, remainingElements);
+
         this.elementData = arrElements;
         this.size = newSize;
     }

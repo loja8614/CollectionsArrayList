@@ -210,26 +210,4 @@ public class TestArrayList {
         String strElement1=lstTest.getAt(1);
         assertEquals( strElement1,"Element01");
     }
-
-/*
-
-
-
-
-    public void testIterator() {
-        tests();
-        arrayList.add("Element01");
-        arrayList.add("Element02");
-
-        ArrayList lstTest = new ArrayList();
-        Iterator iter = arrayList.iterator();
-
-        while (iter.hasNext()) {
-            lstTest.add(iter.next().toString());
-        }
-
-        assertTrue(lstTest.getAt(0).equals("Element01") && lstTest.getAt(1).equals("Element02"));
-    }
-*/
-
 }

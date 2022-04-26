@@ -2,8 +2,6 @@ package com.personal;
 
 
 import com.personal.list.Iterator;
-
-//import java.util.ArrayList;
 import com.personal.list.arraylist.ArrayList;
 //import com.personal.list.linkedlist.LinkedList;
 
@@ -68,14 +66,20 @@ public class Main {
 
         ArrayList lst = new ArrayList();
 
-        lst.add("Elemento1"); //0
-        lst.add("Elemento2"); //1
-        lst.add("Elemento3"); //2
-        lst.add("Elemento4"); //3
+        lst.add("Elemento1");
+        lst.add("Elemento2");
+        lst.add("Elemento3");
+        lst.add("Elemento4");
         lst.insert(4,"Elemento5");
         lst.insert(4,"Elemento4duplicado");
         lst.insert(0,"Elemento 0");
 
+
+
+
+        //lst.remove(0);
+        //lst.remove(3);
+        //lst.remove(1);
 
         Iterator iter = lst.iterator();
 
@@ -83,9 +87,6 @@ public class Main {
             System.out.println(iter.next());
         }
 
-        //lst.remove(0);
-        //lst.remove(3);
-        //lst.remove(1);
         //lst.removeAll();
         //lst.size();
 
