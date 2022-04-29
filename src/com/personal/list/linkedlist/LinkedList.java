@@ -2,8 +2,9 @@ package com.personal.list.linkedlist;
 
 import com.personal.list.Iterator;
 import com.personal.list.List;
+import com.personal.list.ReverseIterator;
 
-public class LinkedList implements List {
+public class LinkedList<T> implements List<T> {
 
     private int size = 0;
     private Node first;
@@ -13,11 +14,12 @@ public class LinkedList implements List {
 
     }
 
-    public void add(String element) {
+    public void add(T element)    {
         linkLast(element);
+
     }
 
-    public void insert(int index, String element) {
+    public void insert(int index, T element) {
         if (index >= 0 && index <= size + 1) {
             if (index == size) {
                 linkLast(element);
@@ -28,13 +30,13 @@ public class LinkedList implements List {
         }
     }
 
-    public String getAt(int index) {
-        return getNode(index).item;
+    public T getAt(int index) {
+        return (T)getNode(index).item;
     }
 
-    public void setAt(int index, String element) {
+    public void setAt(int index, T element) {
         Node nodeSetAt = getNode(index);
-        String oldVal = nodeSetAt.item;
+        T oldVal = (T) nodeSetAt.item;
         nodeSetAt.item = element;
     }
 
@@ -66,33 +68,51 @@ public class LinkedList implements List {
         return new ListIterator();
     }
 
-    private class ListIterator implements Iterator {
+    private class ListIterator implements Iterator, ReverseIterator {
         private Node lastReturned;
         private Node next;
+        private Node previous;
         private int nextIndex;
+        private int previousIndex=size-1;
         int index = 0;
 
         ListIterator() {
             this.next = getNode(index);
+            this.previous=getNode(size-1);
         }
 
         public boolean hasNext() {
             return nextIndex < size;
         }
 
-        public String next() {
-            String strReturned = null;
+        public T next() {
+            T varReturned = null;
             if (hasNext()) {
-                strReturned = next.item;
+                varReturned = (T) next.item;
                 next = next.next;
                 lastReturned = next;
                 nextIndex++;
             }
-            return strReturned;
+            return varReturned;
+        }
+
+        public boolean hasPrev() {
+            return previousIndex >=0;
+        }
+
+        public T previous() {
+            T varReturned = null;
+            if (hasPrev()) {
+                varReturned = (T) previous.item;
+                previous = previous.prev;
+                lastReturned = previous;
+                previousIndex--;
+            }
+            return varReturned;
         }
     }
 
-    private void linkLast(String element) {
+    private void linkLast(T element) {
         Node nodeLast = last;
         Node newNode = new Node(nodeLast, element, null);
         last = newNode;
@@ -103,7 +123,7 @@ public class LinkedList implements List {
         size++;
     }
 
-    private void linkBefore(String element, Node nodeSuccessor) {
+    private void linkBefore(T element, Node nodeSuccessor) {
         Node nodePredecessor = nodeSuccessor.prev;
         Node newNode = new Node(nodePredecessor, element, nodeSuccessor);
         nodeSuccessor.prev = newNode;
