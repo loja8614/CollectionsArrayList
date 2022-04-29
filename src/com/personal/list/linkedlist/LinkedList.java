@@ -69,7 +69,6 @@ public class LinkedList<T> implements List<T> {
     }
 
     private class ListIterator implements Iterator, ReverseIterator {
-        private Node lastReturned;
         private Node next;
         private Node previous;
         private int nextIndex;
@@ -90,7 +89,7 @@ public class LinkedList<T> implements List<T> {
             if (hasNext()) {
                 varReturned = (T) next.item;
                 next = next.next;
-                lastReturned = next;
+
                 nextIndex++;
             }
             return varReturned;
@@ -105,7 +104,6 @@ public class LinkedList<T> implements List<T> {
             if (hasPrev()) {
                 varReturned = (T) previous.item;
                 previous = previous.prev;
-                lastReturned = previous;
                 previousIndex--;
             }
             return varReturned;
