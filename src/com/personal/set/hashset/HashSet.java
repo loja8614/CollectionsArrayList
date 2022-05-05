@@ -67,6 +67,8 @@ public class HashSet<T> implements Set<T> {
 
     private class HasSetIterator implements Iterator{
         int cursor ;
+        int indexBucket= buckets.length-1;
+        int countElement =0;
 
         public boolean hasNext() {
             return cursor!=size;
@@ -74,12 +76,17 @@ public class HashSet<T> implements Set<T> {
 
         public Object next() {
             Object objElement=null;
-            for(int i=0;i<buckets.length;i++ ) {
-                for(int j=0;j<buckets[i].size();j++){
-                    objElement = buckets[i].getAt(j);
+                if(buckets[indexBucket].size()>0 && countElement!=buckets[indexBucket].size()){
+                    for(int j=0;j<buckets[indexBucket].size();j++){
+                        objElement = buckets[indexBucket].getAt(j);
+                        countElement++;
+                        break;
+                    }
+                    cursor++;
+                }else{
+                    indexBucket--;
+                    countElement=0;
                 }
-            }
-            cursor++;
             return objElement;
         }
     }
