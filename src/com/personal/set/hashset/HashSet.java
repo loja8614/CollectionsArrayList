@@ -1,67 +1,86 @@
 package com.personal.set.hashset;
 
 import com.personal.list.Iterator;
+import com.personal.list.arraylist.ArrayList;
 import com.personal.set.Set;
 
 public class HashSet<T> implements Set<T> {
 
-    private Map<T, T>[] elementsData;
+    private ArrayList<T>[] buckets;
     private int size;
-
+    private int numBuckets=3;
 
     public HashSet() {
+        buckets=new ArrayList[numBuckets];
+        buckets[0]=new ArrayList<T>();
+        buckets[1]=new ArrayList<T>();
+        buckets[2]=new ArrayList<T>();
     }
 
-    public void add(Object element) {
-
+    public void add(T element) {
+        int index = element.hashCode() % numBuckets;
+        if(!contains(element)){
+            buckets[index].add(element);
+            size++;
+        }
     }
 
-    public void remove(Object element) {
-
+    public void remove(T element) {
+        int index = element.hashCode() % numBuckets;
+        for(int i =0;i<buckets[index].size();i++){
+            Object objElement = buckets[index].getAt(i);
+            if(objElement.equals(element)){
+                buckets[index].remove(i);
+                size--;
+                break;
+            }
+        }
     }
 
-    public boolean removeAll() {
-        return false;
+    public void removeAll() {
+        for(int i =0; i<buckets.length;i++){
+            buckets[i]=null;
+        }
+        size=0;
     }
 
-    public boolean contains(Object element) {
-        return false;
-    }
+    public boolean contains(T element) {
+        boolean elementIsPresent=false;
+        int index = element.hashCode() % numBuckets;
 
-    public void clear() {
-
+        for(int i =0;i<buckets[index].size();i++){
+            Object objElement = buckets[index].getAt(i);
+            if(objElement.equals(element)){
+                elementIsPresent=true;
+            }
+        }
+        return elementIsPresent;
     }
 
     public int size() {
         return this.size;
     }
 
-    public boolean isEmpty() {
-        return false;
-    }
-
-    public boolean isEquals(Object element) {
-        return false;
-    }
-
-    public int getHashCode(Map<T, T> element) {
-        int hash = 0;
-        int length = element.value.toString().length();
-        for (int i = 0; i < length; i++) {
-            hash = 31 * hash + (int) getChar(element.value.toString(), i);
-        }
-        return hash;
-    }
-
     public Iterator<T> iterator() {
-        return null;
+       return new HasSetIterator();
     }
-    
-    private char getChar(String strElement, int index){
-        char var[] = new char[strElement.length()-1];
-        for (int i =0;i< strElement.length();i++){
-            var[i]=strElement.charAt(i);
+
+    private class HasSetIterator implements Iterator{
+        int cursor ;
+
+        public boolean hasNext() {
+            return cursor!=size;
         }
-        return var[index];
+
+        public Object next() {
+            Object objElement=null;
+            for(int i=0;i<buckets.length;i++ ) {
+                for(int j=0;j<buckets[i].size();j++){
+                    objElement = buckets[i].getAt(j);
+                }
+            }
+            cursor++;
+            return objElement;
+        }
     }
 }

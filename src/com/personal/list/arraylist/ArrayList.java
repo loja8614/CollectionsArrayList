@@ -58,20 +58,11 @@ public class ArrayList<T> implements List<T> {
 
     public void remove(int index) {
 
-        int newSize = this.size - 1;
-        T[] arrElements =(T[]) new Object[newSize];
-        int j=0;
-        for (int i = size-1; i > 0; i--) {
-            if(index==i){
-                arrElements[j]=this.elementData[size- (i+1)];
-            }else
-            {
-                arrElements[j]=this.elementData[size - (i)];
-            }
-            j++;
+        for (int i =index; i < size-1; i++) {
+            this.elementData[i]=this.elementData[i+1];
         }
-        this.elementData = arrElements;
-        this.size = newSize;
+        this.elementData[size-1]=null;
+        this.size--;
     }
 
     public void removeAll() {
