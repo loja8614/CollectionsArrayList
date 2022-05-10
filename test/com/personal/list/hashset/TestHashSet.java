@@ -6,7 +6,6 @@ import com.personal.set.hashset.HashSet;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestHashSet {
     @Test
@@ -102,6 +101,21 @@ public class TestHashSet {
         int size = arrHashSet.size();
         assertEquals(0,size);
     }
+    @Test
+    public void givenFortyElementsInHashSet_whenSize_thenSizeForty() {
+
+        //Given:
+        Set<String> arrHashSet = new HashSet<String>();
+        for (int i = 0; i < 40; i++) {
+            arrHashSet.add("Element " + i);
+        }
+
+        //When:
+        int size = arrHashSet.size();
+
+        //Then:
+        assertEquals(40,size);
+    }
 
     @Test
     public void givenAnElementInHashSet_whenContainsElement1_thenTrue() {
@@ -142,14 +156,37 @@ public class TestHashSet {
         //When:
         Iterator<String> iteratorHashSet= arrHashSet.iterator();
 
-
         //Then:
         iteratorHashSet.hasNext();
         String strIterator=iteratorHashSet.next();
-        //assertEquals("Elemento1",strIterator);
-        //iteratorHashSet.hasNext();
-        //strIterator=iteratorHashSet.next();
+        assertEquals("Elemento1",strIterator);
+        iteratorHashSet.hasNext();
+        strIterator=iteratorHashSet.next();
         assertEquals("Elemento2",strIterator);
+
+    }
+
+
+    @Test
+    public void givenFortyElementsInHashSet_whenIterator_thenGetSize40() {
+
+        //Given:
+        Set<String> arrHashSet = new HashSet<String>();
+        for (int i = 0; i < 40; i++) {
+            arrHashSet.add("Elemento " + i);
+        }
+
+        //When:
+        Iterator<String> iteratorHashSet= arrHashSet.iterator();
+        while (iteratorHashSet.hasNext()){
+            String strIterator = iteratorHashSet.next();
+        }
+
+        //Then:
+        int size =arrHashSet.size();
+
+        assertEquals(40,size);
+
 
     }
 
