@@ -41,6 +41,33 @@ public class Main {
         test.insert(16);
 */
 
+        Set<String> item1 = new TreeSet<String>();
+        item1.add("Juan");
+        item1.add("Alejandra");
+        item1.add("Maria");
+        item1.add("Ana");
+        item1.add("Julieta");
+        item1.add("Rosa");
+        item1.add("Pedro");
+        item1.add("Pablo");
+        item1.add("Hugo");
+        item1.add("Hector");
+        item1.remove("Mariana");
+
+
+        boolean existe = item1.contains("Hector");
+        boolean existe2 = item1.contains("Julieta");
+
+        Iterator<String> ite2r = item1.iterator();
+        while (ite2r.hasNext()){
+            String values = ite2r.next();
+            System.out.println("values = " + values);
+        }
+
+
+
+
+
         Set<Integer> item = new TreeSet<Integer>();
         item.add(47);
         item.add(60);
@@ -55,8 +82,8 @@ public class Main {
         item.remove(12);
 
 
-        boolean existe = item.contains(12);
-        boolean existe2 = item.contains(22);
+        boolean existe1 = item.contains(12);
+        boolean existe3 = item.contains(22);
 
         Iterator<Integer> iter = item.iterator();
         while (iter.hasNext()){

@@ -16,10 +16,8 @@ public class TestTreeSet {
         //Given:
         Set<String> varTreeSet = new TreeSet<String>();
 
-
         //When:
         int size = varTreeSet.size();
-
 
         //Then:
         assertEquals(size, 0);
@@ -31,11 +29,9 @@ public class TestTreeSet {
         //Given:
         Set<Integer> varTreeSet = new TreeSet<Integer>();
 
-
         //When:
         varTreeSet.add(8);
         int size = varTreeSet.size();
-
 
         //Then:
         assertEquals(size, 1);
@@ -60,9 +56,55 @@ public class TestTreeSet {
         varTreeSet.add(16);
         int size = varTreeSet.size();
 
+        //Then:
+        assertEquals(size, 10);
+    }
+
+    @Test
+    public void givenNewTreeSet_whenAddNewTenStringElement_thenSizeTen() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+
+        //When:
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Maria");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Julieta");
+        varTreeSet.add("Rosa");
+        varTreeSet.add("Pedro");
+        varTreeSet.add("Pablo");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+        varTreeSet.remove("Mariana");
+        int size = varTreeSet.size();
 
         //Then:
         assertEquals(size, 10);
+    }
+
+    @Test
+    public void givenTenStringElementsInTreeSet_whenContainsPablo_thenTrue() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Maria");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Julieta");
+        varTreeSet.add("Rosa");
+        varTreeSet.add("Pedro");
+        varTreeSet.add("Pablo");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+        varTreeSet.remove("Mariana");
+        //When:
+        boolean isPabloPresent = varTreeSet.contains("Pablo");
+
+        //Then:
+        assertEquals(isPabloPresent, true);
     }
 
 
@@ -84,7 +126,6 @@ public class TestTreeSet {
 
         //When:
         varTreeSet.remove(12);
-
 
         //Then:
         int size = varTreeSet.size();
@@ -247,7 +288,6 @@ public class TestTreeSet {
         int size = varTreeSet.size();
 
         //Then:
-
         assertEquals(size, 15);
     }
 
@@ -266,6 +306,8 @@ public class TestTreeSet {
         varTreeSet.add(20);
         varTreeSet.add(52);
         varTreeSet.add(16);
+        varTreeSet.remove(12);
+
 
         //When:
         int count = 0;

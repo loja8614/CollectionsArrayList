@@ -4,27 +4,26 @@ import com.personal.Iterator;
 import com.personal.arraylist.ArrayList;
 import com.personal.set.Set;
 
-public class TreeSet<T> implements Set<T> {
+public class TreeSet<T extends Comparable<T>> implements Set<T> {
 
     private static final boolean RED = true;
     private static final boolean BLACK = false;
 
-    private Node root;
+    private Node<T> root;
     private int size;
-    boolean ll = false; // Flag left left
-    boolean rr = false; // Flag Right Right
-    boolean lr = false; // Flag left Right
-    boolean rl = false; // Flag Right left
+    private boolean ll = false; // Flag left left
+    private boolean rr = false; // Flag Right Right
+    private boolean lr = false; // Flag left Right
+    private boolean rl = false; // Flag Right left
 
     public TreeSet() {
         root = null;
         size = 0;
     }
 
-    public void add(T gElement) {
-        Integer element = (Integer) gElement;
+    public void add(T element) {
         if (this.root == null) {
-            this.root = new Node(element);
+            this.root = new Node<>(element);
             this.root.colour = false;
             size++;
         } else {
@@ -34,7 +33,7 @@ public class TreeSet<T> implements Set<T> {
     }
 
     public void remove(T item) {
-        Node node = getNode(root, item);
+        Node<T> node = getNode(root, item);
         if (node != null) {
             root = remove(root, item);
         }
@@ -58,9 +57,9 @@ public class TreeSet<T> implements Set<T> {
     }
 
 
-    private Node rotateLeft(Node node) {
-        Node x = node.right;
-        Node y = x.left;
+    private Node<T> rotateLeft(Node<T> node) {
+        Node<T> x = node.right;
+        Node<T> y = x.left;
         x.left = node;
         node.right = y;
         node.parent = x; // parent resetting.
@@ -70,9 +69,9 @@ public class TreeSet<T> implements Set<T> {
     }
 
 
-    private Node rotateRight(Node node) {
-        Node x = node.left;
-        Node y = x.right;
+    private Node<T> rotateRight(Node<T> node) {
+        Node<T> x = node.left;
+        Node<T> y = x.right;
         x.right = node;
         node.left = y;
         node.parent = x;
@@ -81,14 +80,13 @@ public class TreeSet<T> implements Set<T> {
         return (x);
     }
 
-    private Node getNode(Node node, T element) {
-        int intElement = (int) element;
+    private Node<T> getNode(Node<T> node, T element) {
         if (node == null)
             return null;
 
         if (element.equals(node.item))
             return node;
-        else if (intElement < node.item)
+        else if (element.compareTo(node.item) < 0)
             return getNode(node.left, element);
         else
             return getNode(node.right, element);
@@ -96,7 +94,7 @@ public class TreeSet<T> implements Set<T> {
 
 
     // Returns the node where the minimum value is found
-    private Node minimum(Node node) {
+    private Node<T> minimum(Node<T> node) {
         if (node.left == null)
             return node;
         return minimum(node.left);
@@ -104,7 +102,7 @@ public class TreeSet<T> implements Set<T> {
 
     // Removes the smallest node
     // Returns the new root after remove the node
-    private Node removeMin(Node node) {
+    private Node<T> removeMin(Node<T> node) {
 
         if (node.left == null) {
             Node rightNode = node.right;
@@ -117,13 +115,12 @@ public class TreeSet<T> implements Set<T> {
         return node;
     }
 
-    private Node remove(Node node, T item) {
-        int intElement = (int) item;
+    private Node<T> remove(Node<T> node, T item) {
 
-        if (intElement< node.item) {
+        if (item.compareTo(node.item) < 0) {
             node.left = remove(node.left, item);
             return node;
-        } else if (intElement > node.item) {
+        } else if (item.compareTo(node.item) > 0) {
             node.right = remove(node.right, item);
             return node;
         } else {
@@ -155,25 +152,25 @@ public class TreeSet<T> implements Set<T> {
         }
     }
 
-    private Node addHelp(Node root, Integer element) {
+    private Node<T> addHelp(Node<T> root, T element) {
         // f is true when RED RED conflict is there.
         boolean flagRed = false;
 
         //recursive calls to insert at proper position according to BST properties.
         if (root == null)
-            return (new Node(element));
+            return (new Node<>(element));
         else if (element.compareTo(root.item) < 0) {
             root.left = addHelp(root.left, element);
             root.left.parent = root;
             if (root != this.root) {
-                if (root.colour == true && root.left.colour == true)
+                if (root.colour  && root.left.colour)
                     flagRed = true;
             }
         } else {
             root.right = addHelp(root.right, element);
             root.right.parent = root;
             if (root != this.root) {
-                if (root.colour == true && root.right.colour == true)
+                if (root.colour && root.right.colour)
                     flagRed = true;
             }
             // at the same time of insertion, assigning parent nodes
@@ -220,7 +217,7 @@ public class TreeSet<T> implements Set<T> {
                 {// perform certaing rotation and recolouring. This will be done while backtracking. Hence setting up respective flags.
                     if (root.left != null && root.left.colour)
                         this.rl = true;
-                    else if (root.right != null && root.right.colour)
+                    else
                         this.ll = true;
                 } else // case when parent's sibling is red
                 {
@@ -233,7 +230,7 @@ public class TreeSet<T> implements Set<T> {
                 if (root.parent.right == null || !root.parent.right.colour) {
                     if (root.left != null && root.left.colour)
                         this.rr = true;
-                    else if (root.right != null && root.right.colour)
+                    else
                         this.lr = true;
                 } else {
                     root.parent.right.colour = false;
@@ -250,7 +247,8 @@ public class TreeSet<T> implements Set<T> {
     private class TreeSetIterator implements Iterator<T> {
         ArrayList<T> elements = new ArrayList<T>();
         int cursor;
-        public TreeSetIterator(){
+
+        public TreeSetIterator() {
             inOrden(root);
         }
 
@@ -260,10 +258,10 @@ public class TreeSet<T> implements Set<T> {
 
         public T next() {
             cursor++;
-            return elements.getAt(cursor-1);
+            return elements.getAt(cursor - 1);
         }
 
-        private void inOrden(Node node) {
+        private void inOrden(Node<T> node) {
             if (node != null) {
                 inOrden(node.left);
                 elements.add((T) node.item);

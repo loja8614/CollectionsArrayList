@@ -1,17 +1,17 @@
 package com.personal.set.treeset;
 
-class Node {
+class Node<T extends Comparable<T>> {
 
     private static final boolean RED = true;
 
-    Integer item;
+    T item;
     Node left;
     Node right;
     boolean colour;
     Node parent;
 
 
-    public Node(Integer item) {
+    public Node(T item) {
         this.item = item;
         left = null;
         right = null;
