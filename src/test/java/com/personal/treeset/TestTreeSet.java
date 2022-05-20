@@ -292,37 +292,6 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenTenElementsInTreeSet_whenIterate_thenCount10() {
-
-        //Given:
-        Set<Integer> varTreeSet = new TreeSet<Integer>();
-        varTreeSet.add(47);
-        varTreeSet.add(60);
-        varTreeSet.add(22);
-        varTreeSet.add(12);
-        varTreeSet.add(6);
-        varTreeSet.add(13);
-        varTreeSet.add(41);
-        varTreeSet.add(20);
-        varTreeSet.add(52);
-        varTreeSet.add(16);
-        varTreeSet.remove(12);
-
-
-        //When:
-        int count = 0;
-        Iterator<Integer> iterator = varTreeSet.iterator();
-        while (iterator.hasNext()) {
-            iterator.next();
-            count++;
-        }
-
-        //Then:
-        int size = varTreeSet.size();
-        assertEquals(count, size);
-    }
-
-    @Test
     public void givenTenStringElementsInTreeSet_whenIterate_then10Elements() {
 
         //Given:
@@ -349,4 +318,5 @@ public class TestTreeSet {
         int size = varTreeSet.size();
         assertEquals(count, size);
     }
+
 }

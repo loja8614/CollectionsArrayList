@@ -53,7 +53,7 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
     }
 
     public Iterator<T> iterator() {
-        return new TreeSetIterator();
+        return new TreeSetIterator(root);
     }
 
 
@@ -245,29 +245,42 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
     }
 
     private class TreeSetIterator implements Iterator<T> {
-        ArrayList<T> elements = new ArrayList<T>();
-        int cursor;
+       private Node<T> next;
 
-        public TreeSetIterator() {
-            inOrden(root);
+        public TreeSetIterator(Node root) {
+            next = root;
+
+            while (next.left != null)
+                next = next.left;
         }
 
+
         public boolean hasNext() {
-            return size != cursor && root != null;
+            return next != null;
         }
 
         public T next() {
-            cursor++;
-            return elements.getAt(cursor - 1);
-        }
-
-        private void inOrden(Node<T> node) {
-            if (node != null) {
-                inOrden(node.left);
-                elements.add((T) node.item);
-                inOrden(node.right);
+            Node<T> r = next;
+            if(next.right != null) {
+                next = next.right;
+                while (next.left != null)
+                    next = next.left;
+                return r.item;
             }
 
+            while(true) {
+                if(next.parent == null) {
+                    next = null;
+                    return r.item;
+                }
+                if(next.parent.left == next ) {
+                    next = next.parent;
+                    return r.item;
+                }
+
+                next = next.parent;
+            }
         }
+
     }
 }

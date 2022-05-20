@@ -60,7 +60,7 @@ public class Main {
 
         Iterator<String> ite2r = item1.iterator();
         while (ite2r.hasNext()){
-            String values = ite2r.next();
+            String values = ite2r.next().toString();
             System.out.println("values = " + values);
         }
 
@@ -79,11 +79,6 @@ public class Main {
         item.add(20);
         item.add(52);
         item.add(16);
-        item.remove(12);
-
-
-        boolean existe1 = item.contains(12);
-        boolean existe3 = item.contains(22);
 
         Iterator<Integer> iter = item.iterator();
         while (iter.hasNext()){

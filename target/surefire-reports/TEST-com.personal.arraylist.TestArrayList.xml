@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.personal.arraylist.TestArrayList" time="0.06" tests="17" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.personal.arraylist.TestArrayList" time="0.048" tests="17" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-15.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\loja7003\AppData\Local\Temp\surefire6057502026323944996\surefirebooter17018413050459369338.jar C:\Users\loja7003\AppData\Local\Temp\surefire6057502026323944996 2022-05-20T15-21-48_410-jvmRun1 surefire17376361359511265666tmp surefire_03013923109730638507tmp"/>
+    <property name="sun.java.command" value="C:\Users\loja7003\AppData\Local\Temp\surefire16835248793449107483\surefirebooter7733737527061805948.jar C:\Users\loja7003\AppData\Local\Temp\surefire16835248793449107483 2022-05-20T17-02-35_223-jvmRun1 surefire5826844263516270055tmp surefire_09844606252637036135tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\loja7003\Documents\Personal\OfficeHours\CollectionsArrayList\target\test-classes;C:\Users\loja7003\Documents\Personal\OfficeHours\CollectionsArrayList\target\classes;C:\Users\loja7003\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.5.2\junit-jupiter-engine-5.5.2.jar;C:\Users\loja7003\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\loja7003\.m2\repository\org\junit\platform\junit-platform-engine\1.5.2\junit-platform-engine-1.5.2.jar;C:\Users\loja7003\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\loja7003\.m2\repository\org\junit\platform\junit-platform-commons\1.5.2\junit-platform-commons-1.5.2.jar;C:\Users\loja7003\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.2\junit-jupiter-api-5.5.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\loja7003\AppData\Local\Temp\surefire6057502026323944996\surefirebooter17018413050459369338.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\loja7003\AppData\Local\Temp\surefire16835248793449107483\surefirebooter7733737527061805948.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="15.0.2+7-27"/>
@@ -57,21 +57,21 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="59.0"/>
   </properties>
-  <testcase name="givenFourElementsInArrayList_whenInsertElementInPosition3_thenSize5" classname="com.personal.arraylist.TestArrayList" time="0.026"/>
-  <testcase name="givenTwoElementsInArrayList_whenIteratePrevious_thenGetValuesIndex1Element01" classname="com.personal.arraylist.TestArrayList" time="0.004"/>
-  <testcase name="givenSetElementInArrayList_whenIndex0_thenSetElement0WithChanges" classname="com.personal.arraylist.TestArrayList" time="0.001"/>
+  <testcase name="givenFourElementsInArrayList_whenInsertElementInPosition3_thenSize5" classname="com.personal.arraylist.TestArrayList" time="0.024"/>
+  <testcase name="givenTwoElementsInArrayList_whenIteratePrevious_thenGetValuesIndex1Element01" classname="com.personal.arraylist.TestArrayList" time="0.002"/>
+  <testcase name="givenSetElementInArrayList_whenIndex0_thenSetElement0WithChanges" classname="com.personal.arraylist.TestArrayList" time="0"/>
   <testcase name="givenFourElementsInArrayList_whenInsertElementInPosition3_thenValueIndex3NewElement03" classname="com.personal.arraylist.TestArrayList" time="0"/>
   <testcase name="givenFourElementsInArrayList_whenRemoveLastIndex_thenGetValueIndexLAstElement3" classname="com.personal.arraylist.TestArrayList" time="0"/>
   <testcase name="givenElementsInArrayList_whenRemoveAll_thenSizeZero" classname="com.personal.arraylist.TestArrayList" time="0"/>
-  <testcase name="givenFourElementsInArrayList_whenRemoveIndex1_thenGetValueIndex1Element3" classname="com.personal.arraylist.TestArrayList" time="0"/>
+  <testcase name="givenFourElementsInArrayList_whenRemoveIndex1_thenGetValueIndex1Element3" classname="com.personal.arraylist.TestArrayList" time="0.001"/>
   <testcase name="givenFourElementsInArrayList_whenSize_then4" classname="com.personal.arraylist.TestArrayList" time="0.001"/>
   <testcase name="givenNewElementInArrayList_whenSize_thenOne" classname="com.personal.arraylist.TestArrayList" time="0.001"/>
   <testcase name="givenTwoElementsInArrayList_whenIterateNext_thenGetValuesIndex1Element00" classname="com.personal.arraylist.TestArrayList" time="0.001"/>
   <testcase name="givenTwoElementsInArrayList_whenIterate_thenGetValuesIndex1Element01" classname="com.personal.arraylist.TestArrayList" time="0"/>
   <testcase name="givenTwoElementsInArrayList_whenRemoveIndex0_thenSize1" classname="com.personal.arraylist.TestArrayList" time="0"/>
-  <testcase name="givenElementsInArrayList_whenInsertElementInPositionZero_thenValueIndexZeroElement0" classname="com.personal.arraylist.TestArrayList" time="0"/>
+  <testcase name="givenElementsInArrayList_whenInsertElementInPositionZero_thenValueIndexZeroElement0" classname="com.personal.arraylist.TestArrayList" time="0.001"/>
   <testcase name="givenTwoElementInArrayList_whenInsertinIndex0_thenGetIndex0Element00" classname="com.personal.arraylist.TestArrayList" time="0.001"/>
-  <testcase name="givenElementInArrayList_whenIndex0_thenGetElement0" classname="com.personal.arraylist.TestArrayList" time="0.002"/>
-  <testcase name="givenNewElementsInArrayList_whenIndexOutSize_thenSizeZero" classname="com.personal.arraylist.TestArrayList" time="0.006"/>
+  <testcase name="givenElementInArrayList_whenIndex0_thenGetElement0" classname="com.personal.arraylist.TestArrayList" time="0"/>
+  <testcase name="givenNewElementsInArrayList_whenIndexOutSize_thenSizeZero" classname="com.personal.arraylist.TestArrayList" time="0.004"/>
   <testcase name="givenNewArrayList_whenSize_thenZero" classname="com.personal.arraylist.TestArrayList" time="0"/>
 </testsuite>
