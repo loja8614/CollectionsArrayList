@@ -52,11 +52,13 @@ public class Main {
         item1.add("Pablo");
         item1.add("Hugo");
         item1.add("Hector");
-        item1.remove("Mariana");
+
 
 
         boolean existe = item1.contains("Hector");
         boolean existe2 = item1.contains("Julieta");
+
+        item1.remove("Alejandra");
 
         Iterator<String> ite2r = item1.iterator();
         while (ite2r.hasNext()){
@@ -67,7 +69,7 @@ public class Main {
 
 
 
-
+/*
         Set<Integer> item = new TreeSet<Integer>();
         item.add(47);
         item.add(60);
@@ -87,7 +89,7 @@ public class Main {
     }
 
         item.size();
-
+*/
 
 /*
         Set<String> elemento = new TreeSet<String>();

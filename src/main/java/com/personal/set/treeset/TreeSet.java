@@ -22,20 +22,23 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
     }
 
     public void add(T element) {
-        if (this.root == null) {
-            this.root = new Node<>(element);
-            this.root.colour = false;
+        if (root == null) {
+            root = new Node<>(element);
+            root.colour = false;
             size++;
         } else {
-            this.root = addHelp(root, element);
-            size++;
+            if(!contains(element)) {
+                this.root = addHelp(root, element);
+                size++;
+            }
+
         }
     }
 
     public void remove(T item) {
         Node<T> node = getNode(root, item);
         if (node != null) {
-            root = remove(root, item);
+            root = removeHelp(root, item);
         }
     }
 
@@ -51,6 +54,7 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
     public int size() {
         return size;
     }
+
 
     public Iterator<T> iterator() {
         return new TreeSetIterator(root);
@@ -115,13 +119,12 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
         return node;
     }
 
-    private Node<T> remove(Node<T> node, T item) {
-
-        if (item.compareTo(node.item) < 0) {
-            node.left = remove(node.left, item);
+    private Node<T> removeHelp(Node<T> node, T element) {
+        if (element.compareTo(node.item) < 0) {
+            node.left = removeHelp(node.left, element);
             return node;
-        } else if (item.compareTo(node.item) > 0) {
-            node.right = remove(node.right, item);
+        } else if (element.compareTo(node.item) > 0) {
+            node.right = removeHelp(node.right, element);
             return node;
         } else {
 
@@ -163,10 +166,10 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
             root.left = addHelp(root.left, element);
             root.left.parent = root;
             if (root != this.root) {
-                if (root.colour  && root.left.colour)
+                if (root.colour && root.left.colour)
                     flagRed = true;
             }
-        } else {
+        } else if (element.compareTo(root.item) > 0){
             root.right = addHelp(root.right, element);
             root.right.parent = root;
             if (root != this.root) {
@@ -245,7 +248,7 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
     }
 
     private class TreeSetIterator implements Iterator<T> {
-       private Node<T> next;
+        private Node<T> next;
 
         public TreeSetIterator(Node root) {
             next = root;
@@ -261,19 +264,19 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
 
         public T next() {
             Node<T> r = next;
-            if(next.right != null) {
+            if (next.right != null) {
                 next = next.right;
                 while (next.left != null)
                     next = next.left;
                 return r.item;
             }
 
-            while(true) {
-                if(next.parent == null) {
+            while (true) {
+                if (next.parent == null) {
                     next = null;
                     return r.item;
                 }
-                if(next.parent.left == next ) {
+                if (next.parent.left == next) {
                     next = next.parent;
                     return r.item;
                 }

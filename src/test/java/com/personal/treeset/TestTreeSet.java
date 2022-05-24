@@ -6,7 +6,7 @@ import com.personal.set.treeset.TreeSet;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+
 
 
 public class TestTreeSet {
@@ -77,7 +77,7 @@ public class TestTreeSet {
         varTreeSet.add("Pablo");
         varTreeSet.add("Hugo");
         varTreeSet.add("Hector");
-        varTreeSet.remove("Mariana");
+
         int size = varTreeSet.size();
 
         //Then:
@@ -99,7 +99,7 @@ public class TestTreeSet {
         varTreeSet.add("Pablo");
         varTreeSet.add("Hugo");
         varTreeSet.add("Hector");
-        varTreeSet.remove("Mariana");
+
         //When:
         boolean isPabloPresent = varTreeSet.contains("Pablo");
 
@@ -292,6 +292,75 @@ public class TestTreeSet {
     }
 
     @Test
+    public void givenTenStringElementsInTreeSet_whenRemoveElement_theElementIsNotPresent() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+
+
+        //When:
+        varTreeSet.remove("Juan");
+
+        //Then:
+        boolean isPresentElement = varTreeSet.contains("Juan");
+        assertEquals(false, isPresentElement);
+    }
+    @Test
+    public void givenTenStringElementsInTreeSet_whenRemoveElement_theSize9() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Maria");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Julieta");
+        varTreeSet.add("Rosa");
+        varTreeSet.add("Pedro");
+        varTreeSet.add("Pablo");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+
+
+        //When:
+        varTreeSet.remove("Hugo");
+
+        //Then:
+        int size = varTreeSet.size();
+        assertEquals(9, size);
+    }
+
+    @Test
+    public void givenTenStringElementsInTreeSet_whenNotInsertElementDuplicated_theSize10() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Maria");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Julieta");
+        varTreeSet.add("Rosa");
+        varTreeSet.add("Pedro");
+        varTreeSet.add("Pablo");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+
+
+        //When:
+        varTreeSet.add("Rosa");
+
+        //Then:
+        int size = varTreeSet.size();
+        assertEquals(10, size);
+    }
+
+    @Test
     public void givenTenStringElementsInTreeSet_whenIterate_then10Elements() {
 
         //Given:
@@ -306,8 +375,10 @@ public class TestTreeSet {
         varTreeSet.add("Pablo");
         varTreeSet.add("Hugo");
         varTreeSet.add("Hector");
-        varTreeSet.remove("Mariana");
+
         int count = 0;
+
+        //When:
         Iterator<String> iterator = varTreeSet.iterator();
         while (iterator.hasNext()) {
             iterator.next();
