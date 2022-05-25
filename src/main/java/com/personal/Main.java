@@ -53,18 +53,17 @@ public class Main {
         item1.add("Hugo");
         item1.add("Hector");
 
-
-
-        boolean existe = item1.contains("Hector");
-        boolean existe2 = item1.contains("Julieta");
-
-        item1.remove("Alejandra");
+        item1.remove("Hugo");
+        //item1.remove("Rosa");
+        //item1.remove("Pablo");
+        //item1.remove("Hector");
 
         Iterator<String> ite2r = item1.iterator();
         while (ite2r.hasNext()){
             String values = ite2r.next().toString();
             System.out.println("values = " + values);
         }
+        System.out.println("Aqui");
 
 
 

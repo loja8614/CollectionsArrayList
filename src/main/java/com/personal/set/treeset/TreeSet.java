@@ -27,7 +27,7 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
             root.colour = false;
             size++;
         } else {
-            if(!contains(element)) {
+            if (!contains(element)) {
                 this.root = addHelp(root, element);
                 size++;
             }
@@ -36,8 +36,7 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
     }
 
     public void remove(T item) {
-        Node<T> node = getNode(root, item);
-        if (node != null) {
+        if (getNode(root, item) != null) {
             root = removeHelp(root, item);
         }
     }
@@ -96,70 +95,49 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
             return getNode(node.right, element);
     }
 
-
-    // Returns the node where the minimum value is found
-    private Node<T> minimum(Node<T> node) {
-        if (node.left == null)
-            return node;
-        return minimum(node.left);
-    }
-
-    // Removes the smallest node
-    // Returns the new root after remove the node
-    private Node<T> removeMin(Node<T> node) {
-
-        if (node.left == null) {
-            Node rightNode = node.right;
-            node.right = null;
-            size--;
-            return rightNode;
-        }
-
-        node.left = removeMin(node.left);
-        return node;
-    }
-
     private Node<T> removeHelp(Node<T> node, T element) {
+        boolean flagRed = false;
         if (element.compareTo(node.item) < 0) {
             node.left = removeHelp(node.left, element);
-            return node;
-        } else if (element.compareTo(node.item) > 0) {
-            node.right = removeHelp(node.right, element);
-            return node;
-        } else {
-
-            // left subtree of the node to delete is empty
-            if (node.left == null) {
-                Node rightNode = node.right;
-                node.right = null;
+            if(node.left.item == element && node.left.left==null && node.left.right==null){
+                node.left=null;
                 size--;
-                return rightNode;
+                return node;
+            }else if(node.left.item == element && node.left.left!=null ){
+                node.left.item=node.left.left.item;
+                node.left.left=null;
+                size--;
+                return node;
+            }
+        } else if(element.compareTo(node.item)>0){
+            node.right=removeHelp(node.right,element);
+            if(node.right.item == element && node.right.left==null && node.right.right==null){
+                node.right=null;
+                size--;
+                return node;
+            }
+            else if(node.right.item == element && node.right.left!=null ){
+                node.right.item=node.right.left.item;
+                node.right.left=null;
+                size--;
+                return node;
+            }
+        }else {
+            if((node.item.compareTo(element)==0) && node.left==null && node.right==null){
+                node.left=null;
+                return node;
+            }else if(node.item == element && node.left!=null ){
+                return node;
             }
 
-            // Right subtree of the node to delete is empty
-            if (node.right == null) {
-                Node leftNode = node.left;
-                node.left = null;
-                size--;
-                return leftNode;
-            }
-
-            // Look for the smallest node larger than the node to remove and use this node to replace the position of the node to be removed
-            Node successor = minimum(node.right);
-            successor.right = removeMin(node.right);
-            successor.left = node.left;
-
-            node.left = node.right = null;
-
-            return successor;
         }
+
+       return (node);
     }
 
     private Node<T> addHelp(Node<T> root, T element) {
-        // f is true when RED RED conflict is there.
         boolean flagRed = false;
 
-        //recursive calls to insert at proper position according to BST properties.
         if (root == null)
             return (new Node<>(element));
         else if (element.compareTo(root.item) < 0) {
@@ -169,31 +147,28 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
                 if (root.colour && root.left.colour)
                     flagRed = true;
             }
-        } else if (element.compareTo(root.item) > 0){
+        } else if (element.compareTo(root.item) > 0) {
             root.right = addHelp(root.right, element);
             root.right.parent = root;
             if (root != this.root) {
                 if (root.colour && root.right.colour)
                     flagRed = true;
             }
-            // at the same time of insertion, assigning parent nodes
-            //Review  RED RED conflicts
         }
 
-        // rotate in different directions.
-        if (this.ll) // for left rotate.
+        if (this.ll)
         {
             root = rotateLeft(root);
             root.colour = false;
             root.left.colour = true;
             this.ll = false;
-        } else if (this.rr) // right rotate
+        } else if (this.rr)
         {
             root = rotateRight(root);
             root.colour = false;
             root.right.colour = true;
             this.rr = false;
-        } else if (this.rl)  // right and then left
+        } else if (this.rl)
         {
             root.right = rotateRight(root.right);
             root.right.parent = root;
@@ -202,7 +177,7 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
             root.left.colour = true;
 
             this.rl = false;
-        } else if (this.lr)  // left and then right.
+        } else if (this.lr)
         {
             root.left = rotateLeft(root.left);
             root.left.parent = root;
@@ -212,17 +187,16 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
             this.lr = false;
         }
 
-        // Change if there are RED RED conflicts
         if (flagRed) {
-            if (root.parent.right == root)  // to check which child is the current node of its parent
+            if (root.parent.right == root)
             {
-                if (root.parent.left == null || !root.parent.left.colour)  // case when parent's sibling is black
-                {// perform certaing rotation and recolouring. This will be done while backtracking. Hence setting up respective flags.
+                if (root.parent.left == null || !root.parent.left.colour)
+                {
                     if (root.left != null && root.left.colour)
                         this.rl = true;
                     else
                         this.ll = true;
-                } else // case when parent's sibling is red
+                } else
                 {
                     root.parent.left.colour = false;
                     root.colour = false;

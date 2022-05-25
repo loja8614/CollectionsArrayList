@@ -390,4 +390,36 @@ public class TestTreeSet {
         assertEquals(count, size);
     }
 
+    @Test
+    public void givenTenStringElementsInTreeSet_whenRemoveElement_thenIterate9Element() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Maria");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Julieta");
+        varTreeSet.add("Rosa");
+        varTreeSet.add("Pedro");
+        varTreeSet.add("Pablo");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+
+        int count = 0;
+
+        //When:
+        varTreeSet.remove("Hugo");
+
+        Iterator<String> iterator = varTreeSet.iterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+            count++;
+        }
+
+        //Then:
+        int size = varTreeSet.size();
+        assertEquals(count, size);
+    }
+
 }
