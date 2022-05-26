@@ -422,4 +422,198 @@ public class TestTreeSet {
         assertEquals(count, size);
     }
 
+    @Test
+    public void givenTenStringElementsInTreeSet_whenRemoveElement_theNotContainsElement() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Maria");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Julieta");
+        varTreeSet.add("Rosa");
+        varTreeSet.add("Pedro");
+        varTreeSet.add("Pablo");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+
+
+        //When:
+        varTreeSet.remove("Hugo");
+        int count = 0;
+        Iterator<String> iterator = varTreeSet.iterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+            count++;
+        }
+
+        //Then:
+        int size = varTreeSet.size();
+        boolean isPresentElement = varTreeSet.contains("Hugo");
+        assertEquals(count, size);
+        assertEquals(isPresentElement,false);
+    }
+    @Test
+    public void givenTenStringElementsInTreeSet_whenRemoveJuan_theNotContainsJuan() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Maria");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Julieta");
+        varTreeSet.add("Rosa");
+        varTreeSet.add("Pedro");
+        varTreeSet.add("Pablo");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+
+
+        //When:
+        varTreeSet.remove("Juan");
+        int count = 0;
+        Iterator<String> iterator = varTreeSet.iterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+            count++;
+        }
+
+        //Then:
+        int size = varTreeSet.size();
+        boolean isPresentElement = varTreeSet.contains("Juan");
+        assertEquals(count, size);
+        assertEquals(isPresentElement,false);
+    }
+
+    @Test
+    public void givenTenStringElementsInTreeSet_whenRemoveJulieta_theNotContainsJulieta() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Maria");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Julieta");
+        varTreeSet.add("Rosa");
+        varTreeSet.add("Pedro");
+        varTreeSet.add("Pablo");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+
+
+        //When:
+        varTreeSet.remove("Julieta");
+        int count = 0;
+        Iterator<String> iterator = varTreeSet.iterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+            count++;
+        }
+
+        //Then:
+        int size = varTreeSet.size();
+        boolean isPresentElement = varTreeSet.contains("Julieta");
+        assertEquals(count, size);
+        assertEquals(isPresentElement,false);
+    }
+    @Test
+    public void givenTenStringElementsInTreeSet_whenRemoveMaria_theNotContainsMaria() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Maria");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Julieta");
+        varTreeSet.add("Rosa");
+        varTreeSet.add("Pedro");
+        varTreeSet.add("Pablo");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+
+
+        //When:
+        varTreeSet.remove("Maria");
+        int count = 0;
+        Iterator<String> iterator = varTreeSet.iterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+            count++;
+        }
+
+        //Then:
+        int size = varTreeSet.size();
+        boolean isPresentElement = varTreeSet.contains("Maria");
+        assertEquals(count, size);
+        assertEquals(isPresentElement,false);
+    }
+    @Test
+    public void givenTenStringElementsInTreeSet_whenRemoveAna_theNotContainsAna() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Maria");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Julieta");
+        varTreeSet.add("Rosa");
+        varTreeSet.add("Pedro");
+        varTreeSet.add("Pablo");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+
+
+        //When:
+        varTreeSet.remove("Ana");
+        int count = 0;
+        Iterator<String> iterator = varTreeSet.iterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+            count++;
+        }
+
+        //Then:
+        int size = varTreeSet.size();
+        boolean isPresentElement = varTreeSet.contains("Ana");
+        assertEquals(count, size);
+        assertEquals(isPresentElement,false);
+    }
+    @Test
+    public void givenTenStringElementsInTreeSet_whenRemoveRosa_theNotContainsRosa() {
+
+        //Given:
+        Set<String> varTreeSet = new TreeSet<String>();
+        varTreeSet.add("Juan");
+        varTreeSet.add("Alejandra");
+        varTreeSet.add("Maria");
+        varTreeSet.add("Ana");
+        varTreeSet.add("Julieta");
+        varTreeSet.add("Rosa");
+        varTreeSet.add("Pedro");
+        varTreeSet.add("Pablo");
+        varTreeSet.add("Hugo");
+        varTreeSet.add("Hector");
+
+
+        //When:
+        varTreeSet.remove("Rosa");
+        int count = 0;
+        Iterator<String> iterator = varTreeSet.iterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+            count++;
+        }
+
+        //Then:
+        int size = varTreeSet.size();
+        boolean isPresentElement = varTreeSet.contains("Rosa");
+        assertEquals(count, size);
+        assertEquals(isPresentElement,false);
+    }
+
 }

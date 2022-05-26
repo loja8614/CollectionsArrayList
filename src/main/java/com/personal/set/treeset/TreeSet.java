@@ -96,16 +96,10 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
     }
 
     private Node<T> removeHelp(Node<T> node, T element) {
-        boolean flagRed = false;
         if (element.compareTo(node.item) < 0) {
             node.left = removeHelp(node.left, element);
             if(node.left.item == element && node.left.left==null && node.left.right==null){
                 node.left=null;
-                size--;
-                return node;
-            }else if(node.left.item == element && node.left.left!=null ){
-                node.left.item=node.left.left.item;
-                node.left.left=null;
                 size--;
                 return node;
             }
@@ -126,13 +120,44 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
             if((node.item.compareTo(element)==0) && node.left==null && node.right==null){
                 node.left=null;
                 return node;
-            }else if(node.item == element && node.left!=null ){
+            }else if(node.item == element && node.left!=null && node.right==null ){
                 return node;
-            }
+            }else if (node.item == element && node.left!=null){
 
+
+                Node successor = minimum(node.right);
+                successor.right = removeMin(node.right);
+                successor.parent=node.parent;
+                successor.right=node.right;
+                successor.right.parent=successor;
+                successor.left = node.left;
+                successor.left.parent=successor;
+                //successor.parent=null;
+                return successor;
+
+            }
         }
 
        return (node);
+    }
+
+    private Node<T> minimum(Node<T> node) {
+        if (node.left == null)
+            return node;
+        return minimum(node.left);
+    }
+
+    private Node<T> removeMin(Node<T> node) {
+
+        if (node.left == null) {
+            Node rightNode = node.right;
+            node.right = null;
+            size--;
+            return rightNode;
+        }
+
+        node.left = removeMin(node.left);
+        return node;
     }
 
     private Node<T> addHelp(Node<T> root, T element) {

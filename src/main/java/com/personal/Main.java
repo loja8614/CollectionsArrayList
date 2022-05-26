@@ -53,7 +53,7 @@ public class Main {
         item1.add("Hugo");
         item1.add("Hector");
 
-        item1.remove("Hugo");
+        item1.remove("Ana");
         //item1.remove("Rosa");
         //item1.remove("Pablo");
         //item1.remove("Hector");
