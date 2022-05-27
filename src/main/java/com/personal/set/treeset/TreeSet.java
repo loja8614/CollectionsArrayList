@@ -132,7 +132,6 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
                 successor.right.parent=successor;
                 successor.left = node.left;
                 successor.left.parent=successor;
-                //successor.parent=null;
                 return successor;
 
             }
