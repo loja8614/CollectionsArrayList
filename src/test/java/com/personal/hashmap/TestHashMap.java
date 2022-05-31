@@ -2,6 +2,7 @@ package com.personal.hashmap;
 
 import com.personal.Iterator;
 import com.personal.map.Map;
+import com.personal.map.domain.Entry;
 import com.personal.map.hahsmap.HashMap;
 import com.personal.set.hashset.HashSet;
 import org.junit.jupiter.api.Test;
@@ -85,9 +86,44 @@ public class TestHashMap {
         int size = hashMap.size();
         assertEquals(2, size);
     }
+    @Test
+    public void givenFourElementsInHashMap_whenGet4_thenElement04() {
+
+        //Given:
+        HashMap<Integer, String> hashMap = new HashMap<>();
+        hashMap.put(1, "Element01");
+        hashMap.put(2, "Element02");
+        hashMap.put(3, "Element03");
+        hashMap.put(4, "Element04");
+
+        //When:
+        Entry<Integer,String> element=hashMap.get(4);
+
+
+        //Then:
+        assertEquals("Element04", element.getValue());
+        assertEquals(4, element.getKey());
+    }
+    @Test
+    public void givenFourElementsInHashMap_whenGet5_thenNull() {
+
+        //Given:
+        HashMap<Integer, String> hashMap = new HashMap<>();
+        hashMap.put(1, "Element01");
+        hashMap.put(2, "Element02");
+        hashMap.put(3, "Element03");
+        hashMap.put(4, "Element04");
+
+        //When:
+        Entry<Integer,String> element=hashMap.get(5);
+
+
+        //Then:
+        assertEquals(null, element);
+    }
 
     @Test
-    public void givenAnElementInHashMapwhenContainsElement1_thenTrue() {
+    public void givenAnElementInHashMap_whenContainsElement1_thenTrue() {
 
         //Given:
         HashMap<Integer, String> hashMap = new HashMap<>();

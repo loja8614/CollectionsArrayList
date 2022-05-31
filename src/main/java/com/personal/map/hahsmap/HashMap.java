@@ -53,10 +53,11 @@ public class HashMap<K extends Comparable<K>,V extends Comparable<V>> implements
         int index = getIndex(elementKey);
         for (int i = 0; i < buckets[index].size(); i++) {
             objElement = buckets[index].getAt(i);
-            if (objElement.getKey().equals(elementKey)) {
+            if (objElement.getKey().compareTo(elementKey)==0) {
                 return objElement;
             }else{
                 System.out.println("The element not exists");
+                objElement=null;
             }
         }
         return objElement;
