@@ -49,8 +49,6 @@ public class TestHashSet {
         int size = arrHashSet.size();
         assertEquals(1,size);
     }
-
-
     @Test
     public void givenTwoElementsInHashSet_whenRemoveOne_thenSizeOne() {
 
@@ -66,7 +64,6 @@ public class TestHashSet {
         int size = arrHashSet.size();
         assertEquals(1,size);
     }
-
     @Test
     public void givenFourElementsInHashSet_whenRemoveTow_thenSizeTwo() {
 
@@ -85,7 +82,6 @@ public class TestHashSet {
         int size = arrHashSet.size();
         assertEquals(2,size);
     }
-
     @Test
     public void givenFourElementsInHashSet_whenRemoveAll_thenSizeZero() {
 
@@ -122,7 +118,6 @@ public class TestHashSet {
         }
         assertEquals(40,size);
     }
-
     @Test
     public void givenAnElementInHashSet_whenContainsElement1_thenTrue() {
 
@@ -136,7 +131,6 @@ public class TestHashSet {
         //Then:
         assertEquals(true,isElementPresent);
     }
-
     @Test
     public void givenAnElementInHashSet_whenNotContainsElement1_thenFalse() {
 
@@ -150,7 +144,6 @@ public class TestHashSet {
         //Then:
         assertEquals(false,isElementPresent);
     }
-
     @Test
     public void givenElementsInHashSet_whenIterator_thenGetValuesElement1Element2() {
 
@@ -171,8 +164,6 @@ public class TestHashSet {
         assertEquals("Elemento2",strIterator);
 
     }
-
-
     @Test
     public void givenFortyElementsInHashSet_whenIterator_thenGetSize40() {
 
@@ -197,6 +188,5 @@ public class TestHashSet {
 
 
     }
-
 
 }

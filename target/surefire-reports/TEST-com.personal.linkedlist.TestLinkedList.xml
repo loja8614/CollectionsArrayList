@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.personal.linkedlist.TestLinkedList" time="0.003" tests="20" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.personal.linkedlist.TestLinkedList" time="0.011" tests="20" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="15"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -16,7 +16,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk-15.0.2\bin"/>
-    <property name="sun.java.command" value="C:\Users\loja7003\AppData\Local\Temp\surefire16835248793449107483\surefirebooter7733737527061805948.jar C:\Users\loja7003\AppData\Local\Temp\surefire16835248793449107483 2022-05-20T17-02-35_223-jvmRun1 surefire5826844263516270055tmp surefire_09844606252637036135tmp"/>
+    <property name="sun.java.command" value="C:\Users\loja7003\AppData\Local\Temp\surefire3884021111494100640\surefirebooter360334602073860542.jar C:\Users\loja7003\AppData\Local\Temp\surefire3884021111494100640 2022-05-27T10-15-55_376-jvmRun1 surefire62910623135117577tmp surefire_09150716015119917805tmp"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="C:\Users\loja7003\Documents\Personal\OfficeHours\CollectionsArrayList\target\test-classes;C:\Users\loja7003\Documents\Personal\OfficeHours\CollectionsArrayList\target\classes;C:\Users\loja7003\.m2\repository\org\junit\jupiter\junit-jupiter-engine\5.5.2\junit-jupiter-engine-5.5.2.jar;C:\Users\loja7003\.m2\repository\org\apiguardian\apiguardian-api\1.1.0\apiguardian-api-1.1.0.jar;C:\Users\loja7003\.m2\repository\org\junit\platform\junit-platform-engine\1.5.2\junit-platform-engine-1.5.2.jar;C:\Users\loja7003\.m2\repository\org\opentest4j\opentest4j\1.2.0\opentest4j-1.2.0.jar;C:\Users\loja7003\.m2\repository\org\junit\platform\junit-platform-commons\1.5.2\junit-platform-commons-1.5.2.jar;C:\Users\loja7003\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.5.2\junit-jupiter-api-5.5.2.jar;"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -31,7 +31,7 @@
     <property name="line.separator" value="&#10;"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
-    <property name="surefire.real.class.path" value="C:\Users\loja7003\AppData\Local\Temp\surefire16835248793449107483\surefirebooter7733737527061805948.jar"/>
+    <property name="surefire.real.class.path" value="C:\Users\loja7003\AppData\Local\Temp\surefire3884021111494100640\surefirebooter360334602073860542.jar"/>
     <property name="user.script" value=""/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="java.runtime.version" value="15.0.2+7-27"/>
@@ -67,7 +67,7 @@
   <testcase name="givenLinkedList_whenAddNextElement_thenSizeTwo" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
   <testcase name="givenTwoElementsInLinked_whenReverseIterate_thenGetValuesNewElement1NewElement0" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
   <testcase name="givenLinkedList_whenInsertNewElement_thenGetValueIndexZeroNewElement0" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
-  <testcase name="givenElementsInLinkedList_whenInsertNewElementIndexOne_thenGetValueNextIndexNewElement1" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
+  <testcase name="givenElementsInLinkedList_whenInsertNewElementIndexOne_thenGetValueNextIndexNewElement1" classname="com.personal.linkedlist.TestLinkedList" time="0.001"/>
   <testcase name="givenFourElementsInLinkedList_whenRemoveLastElement_thenGetValueLastNewElement2" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
   <testcase name="givenTwoElementsInLinked_whenIterate_thenGetValuesNewElement0NewElement1" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
   <testcase name="givenFourElementsInLinkedList_whenRemoveAll_thenSizeZero" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
@@ -75,6 +75,6 @@
   <testcase name="givenElementInLinkedList_whenAddNewElement_thenGetValueElement" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
   <testcase name="givenNewLinkedList_whenAddNewElement_thenSizeOne" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
   <testcase name="givenLinkedList_whenInsertNewLastElement_thenGetValueLastIndexLastElement" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
-  <testcase name="givenElementsInLinkedList_whenSetNewValueIndexZero_thenGetValueIndexZeroElementWithChanges" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
+  <testcase name="givenElementsInLinkedList_whenSetNewValueIndexZero_thenGetValueIndexZeroElementWithChanges" classname="com.personal.linkedlist.TestLinkedList" time="0.006"/>
   <testcase name="givenOneElementInLinkedList_whenRemoveElement_thenSizeZero" classname="com.personal.linkedlist.TestLinkedList" time="0"/>
 </testsuite>

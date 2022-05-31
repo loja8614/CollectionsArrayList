@@ -248,7 +248,7 @@ public class TreeSet<T extends Comparable<T>> implements Set<T> {
     private class TreeSetIterator implements Iterator<T> {
         private Node<T> next;
 
-        public TreeSetIterator(Node root) {
+        TreeSetIterator(Node root) {
             next = root;
 
             while (next.left != null)
