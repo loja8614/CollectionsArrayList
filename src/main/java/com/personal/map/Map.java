@@ -3,7 +3,7 @@ package com.personal.map;
 import com.personal.Iterator;
 import com.personal.map.domain.Entry;
 
-public interface Map<K extends Comparable<K>, V extends Comparable<V>>  {
+public interface Map<K , V>  {
     /**
      * Adds the specified element to this map if it is not already present
      * *@param element to be put to this map

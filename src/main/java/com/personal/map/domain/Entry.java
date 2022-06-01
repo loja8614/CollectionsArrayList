@@ -1,6 +1,6 @@
 package com.personal.map.domain;
 
-public class Entry<K extends Comparable<K>, V extends Comparable<V>> {
+public class Entry<K , V > {
     private K key;
     private V value;
 

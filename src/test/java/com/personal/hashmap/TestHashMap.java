@@ -14,7 +14,7 @@ public class TestHashMap {
     public void givenNewHashMap_whenSize_thenZero() {
 
         //Given:
-        HashMap<Integer, String> hashMap = new HashMap<>();
+        Map<Integer, String> hashMap = new HashMap<>();
 
         //When:
         int size = hashMap.size();
@@ -27,7 +27,7 @@ public class TestHashMap {
     public void givenNewHashMap_whenPutElement_thenSizeOne() {
 
         //Given:
-        HashMap<String, String> hashMap = new HashMap<>();
+        Map<String, String> hashMap = new HashMap<>();
 
         //When:
         hashMap.put("1", "Element01");
@@ -41,7 +41,7 @@ public class TestHashMap {
     public void givenAnElementInHashMap_whenPutEqualElement_thenSizeOne() {
 
         //Given:
-        HashMap<String, String> hashMap = new HashMap<>();
+        Map<String, String> hashMap = new HashMap<>();
         hashMap.put("1", "Element01");
 
         //When:
@@ -56,7 +56,7 @@ public class TestHashMap {
     public void givenTwoElementsInHashMap_whenRemoveOne_thenSizeOne() {
 
         //Given:
-        HashMap<Integer, String> hashMap = new HashMap<>();
+        Map<Integer, String> hashMap = new HashMap<>();
         hashMap.put(1, "Element01");
         hashMap.put(2, "Element02");
 
@@ -72,7 +72,7 @@ public class TestHashMap {
     public void givenFourElementsInHashMap_whenRemoveTow_thenSizeTwo() {
 
         //Given:
-        HashMap<Integer, String> hashMap = new HashMap<>();
+        Map<Integer, String> hashMap = new HashMap<>();
         hashMap.put(1, "Element01");
         hashMap.put(2, "Element02");
         hashMap.put(3, "Element03");
@@ -90,7 +90,7 @@ public class TestHashMap {
     public void givenFourElementsInHashMap_whenGet4_thenElement04() {
 
         //Given:
-        HashMap<Integer, String> hashMap = new HashMap<>();
+        Map<Integer, String> hashMap = new HashMap<>();
         hashMap.put(1, "Element01");
         hashMap.put(2, "Element02");
         hashMap.put(3, "Element03");
@@ -108,7 +108,7 @@ public class TestHashMap {
     public void givenFourElementsInHashMap_whenGet5_thenNull() {
 
         //Given:
-        HashMap<Integer, String> hashMap = new HashMap<>();
+        Map<Integer, String> hashMap = new HashMap<>();
         hashMap.put(1, "Element01");
         hashMap.put(2, "Element02");
         hashMap.put(3, "Element03");
@@ -126,7 +126,7 @@ public class TestHashMap {
     public void givenAnElementInHashMap_whenContainsElement1_thenTrue() {
 
         //Given:
-        HashMap<Integer, String> hashMap = new HashMap<>();
+        Map<Integer, String> hashMap = new HashMap<>();
         hashMap.put(1, "Element01");
 
         //When:
@@ -140,7 +140,7 @@ public class TestHashMap {
     public void givenAnElementInHashMap_whenNotContainsElement1_thenFalse() {
 
         //Given:
-        HashMap<Integer, String> hashMap = new HashMap<>();
+        Map<Integer, String> hashMap = new HashMap<>();
         hashMap.put(1, "Element01");
 
         //When:
@@ -155,7 +155,7 @@ public class TestHashMap {
 
         //Given:
         //Given:
-        HashMap<String, String> hashMap = new HashMap<>();
+        Map<String, String> hashMap = new HashMap<>();
         hashMap.put("1", "Element01");
         hashMap.put("2", "Element02");
 
@@ -177,7 +177,7 @@ public class TestHashMap {
 
         //Given:
         //Given:
-        HashMap<Integer, String> hashMap = new HashMap<>();
+        Map<Integer, String> hashMap = new HashMap<>();
 
         for (int i = 0; i < 40; i++) {
             hashMap.put(i, "Element " + i);
