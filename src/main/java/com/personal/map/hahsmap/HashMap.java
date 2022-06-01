@@ -48,19 +48,20 @@ public class HashMap<K extends Comparable<K>,V extends Comparable<V>> implements
     }
 
     @Override
-    public Entry<K, V> get(K elementKey) {
+    public V get(K elementKey) {
         Entry<K,V> objElement=null;
+
         int index = getIndex(elementKey);
         for (int i = 0; i < buckets[index].size(); i++) {
             objElement = buckets[index].getAt(i);
             if (objElement.getKey().compareTo(elementKey)==0) {
-                return objElement;
+                return objElement.getValue();
             }else{
                 System.out.println("The element not exists");
-                objElement=null;
+                objElement.setValue(null);
             }
         }
-        return objElement;
+        return objElement.getValue();
     }
 
     @Override
@@ -79,7 +80,7 @@ public class HashMap<K extends Comparable<K>,V extends Comparable<V>> implements
     }
 
     @Override
-    public Iterator<V> iterator() {
+    public Iterator<Entry<K,V>> iterator() {
         return new HashMapIterator();
     }
 
@@ -108,7 +109,7 @@ public class HashMap<K extends Comparable<K>,V extends Comparable<V>> implements
 
 
 
-    private class HashMapIterator implements Iterator<V> {
+    private class HashMapIterator implements Iterator<Entry<K,V>> {
         int cursor;
         int countElement = 0;
         int indexBucket = 0;
@@ -122,7 +123,7 @@ public class HashMap<K extends Comparable<K>,V extends Comparable<V>> implements
 
         }
 
-        public V next() {
+        public Entry<K,V> next() {
             Entry<K,V> objElement = buckets[indexBucket].getAt(countElement);
             countElement++;
             if (!((buckets[indexBucket].size()) > 1)) {
@@ -130,7 +131,7 @@ public class HashMap<K extends Comparable<K>,V extends Comparable<V>> implements
                 countElement = 0;
             }
             cursor++;
-            return objElement.getValue();
+            return objElement;
         }
     }
 }

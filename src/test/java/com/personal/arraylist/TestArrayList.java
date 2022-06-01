@@ -1,17 +1,16 @@
 package com.personal.arraylist;
 
 import com.personal.Iterator;
-import com.personal.ReverseIterator;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 
-public class TestArrayList {
+
+ class TestArrayList {
 
     @Test
-    public void givenNewArrayList_whenSize_thenZero() {
+     void givenNewArrayList_whenSize_thenZero() {
 
         //Given:
         ArrayList arrayList = new ArrayList();
@@ -24,7 +23,7 @@ public class TestArrayList {
     }
 
     @Test
-    public void givenNewElementInArrayList_whenSize_thenOne() {
+     void givenNewElementInArrayList_whenSize_thenOne() {
 
         //Given:
         ArrayList arrayList = new ArrayList();
@@ -39,7 +38,7 @@ public class TestArrayList {
     }
 
     @Test
-    public void givenFourElementsInArrayList_whenSize_then4() {
+     void givenFourElementsInArrayList_whenSize_then4() {
 
         //Given:
         ArrayList arrayList = new ArrayList();
@@ -57,10 +56,10 @@ public class TestArrayList {
     }
 
     @Test
-    public void givenElementInArrayList_whenIndex0_thenGetElement0() {
+     void givenElementInArrayList_whenIndex0_thenGetElement0() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element0");
 
         //When:
@@ -71,10 +70,10 @@ public class TestArrayList {
 
     }
     @Test
-    public void givenTwoElementInArrayList_whenInsertinIndex0_thenGetIndex0Element00() {
+     void givenTwoElementInArrayList_whenInsertInIndex0_thenGetIndex0Element00() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element0");
         arrayList.add("Element1");
 
@@ -88,10 +87,10 @@ public class TestArrayList {
     }
 
     @Test
-    public void givenSetElementInArrayList_whenIndex0_thenSetElement0WithChanges() {
+     void givenSetElementInArrayList_whenIndex0_thenSetElement0WithChanges() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element0");
         arrayList.setAt(0,"Element0WithChanges");
 
@@ -103,10 +102,10 @@ public class TestArrayList {
     }
 
     @Test
-    public void givenElementsInArrayList_whenRemoveAll_thenSizeZero() {
+     void givenElementsInArrayList_whenRemoveAll_thenSizeZero() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element0");
         arrayList.add("Element2");
 
@@ -120,10 +119,10 @@ public class TestArrayList {
     }
 
     @Test
-    public void givenElementsInArrayList_whenInsertElementInPositionZero_thenValueIndexZeroElement0() {
+     void givenElementsInArrayList_whenInsertElementInPositionZero_thenValueIndexZeroElement0() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element1");
 
 
@@ -136,10 +135,10 @@ public class TestArrayList {
         assertEquals(strElement, "Element0");
     }
     @Test
-    public void givenFourElementsInArrayList_whenInsertElementInPosition3_thenValueIndex3NewElement03() {
+     void givenFourElementsInArrayList_whenInsertElementInPosition3_thenValueIndex3NewElement03() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element1");
         arrayList.add("Element2");
         arrayList.add("Element3");
@@ -155,10 +154,10 @@ public class TestArrayList {
         assertEquals(strElement, "NewElement03");
     }
     @Test
-    public void givenFourElementsInArrayList_whenInsertElementInPosition3_thenSize5() {
+     void givenFourElementsInArrayList_whenInsertElementInPosition3_thenSize5() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element1");
         arrayList.add("Element2");
         arrayList.add("Element3");
@@ -175,10 +174,10 @@ public class TestArrayList {
     }
 
     @Test
-    public void givenTwoElementsInArrayList_whenRemoveIndex0_thenSize1() {
+     void givenTwoElementsInArrayList_whenRemoveIndex0_thenSize1() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element0");
         arrayList.add("Element2");
 
@@ -191,10 +190,10 @@ public class TestArrayList {
         assertEquals(1, size);
     }
     @Test
-    public void givenFourElementsInArrayList_whenRemoveIndex1_thenGetValueIndex1Element3() {
+     void givenFourElementsInArrayList_whenRemoveIndex1_thenGetValueIndex1Element3() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element0");
         arrayList.add("Element2");
         arrayList.add("Element3");
@@ -202,17 +201,17 @@ public class TestArrayList {
 
         //When:
         arrayList.remove(1);
-        String strElementIndex0 = arrayList.getAt(1);
+        String strElementIndex1 = arrayList.getAt(1);
 
 
         //Then:
-        assertEquals("Element3", "Element3");
+        assertEquals(strElementIndex1, "Element3");
     }
     @Test
-    public void givenFourElementsInArrayList_whenRemoveLastIndex_thenGetValueIndexLAstElement3() {
+     void givenFourElementsInArrayList_whenRemoveLastIndex_thenGetValueIndexLAstElement3() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element0");
         arrayList.add("Element2");
         arrayList.add("Element3");
@@ -224,13 +223,13 @@ public class TestArrayList {
 
 
         //Then:
-        assertEquals("Element3", "Element3");
+        assertEquals(strElementIndex0, "Element3");
     }
     @Test
-    public void givenTwoElementsInArrayList_whenIterate_thenGetValuesIndex1Element01() {
+     void givenTwoElementsInArrayList_whenIterate_thenGetValuesIndex1Element01() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element00");
         arrayList.add("Element01");
 
@@ -248,10 +247,10 @@ public class TestArrayList {
     }
 
     @Test
-    public void givenTwoElementsInArrayList_whenIterateNext_thenGetValuesIndex1Element00() {
+     void givenTwoElementsInArrayList_whenIterateNext_thenGetValuesIndex1Element00() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element00");
 
 
@@ -265,13 +264,13 @@ public class TestArrayList {
     }
 
     @Test
-    public void givenNewElementsInArrayList_whenIndexOutSize_thenSizeZero() {
+     void givenNewElementsInArrayList_whenIndexOutSize_thenSizeZero() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
 
         //When:
-        arrayList.insert(10,"Elemento0");
+        arrayList.insert(10,"Element0");
 
         //Then:
         int size=arrayList.size();
@@ -279,20 +278,20 @@ public class TestArrayList {
     }
 
     @Test
-    public void givenTwoElementsInArrayList_whenIteratePrevious_thenGetValuesIndex1Element01() {
+     void givenTwoElementsInArrayList_whenIteratePrevious_thenGetValuesIndex1Element01() {
 
         //Given:
-        ArrayList<String> arrayList = new ArrayList<String>();
+        ArrayList<String> arrayList = new ArrayList<>();
         arrayList.add("Element00");
         arrayList.add("Element01");
 
 
         //When:
-        ReverseIterator<String> varIterator = (ReverseIterator) arrayList.iterator();
+        Iterator<String> varIterator =  arrayList.reverseIterator();
 
         //Then:
-        varIterator.hasPrev();
-        String strElement= varIterator.previous();
+        varIterator.hasNext();
+        String strElement= varIterator.next();
         assertEquals(strElement,"Element01");
     }
 }

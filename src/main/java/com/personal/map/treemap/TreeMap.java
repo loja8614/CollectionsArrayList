@@ -45,7 +45,7 @@ public class TreeMap<K extends Comparable<K>, V extends Comparable<V>> implement
         return getNode(root, key) != null;
     }
 
-    public Entry<K, V> get(K key) {
+    public V get(K key) {
         Node<K, V> node = getNode(root, key);
         Entry<K, V> element = new Entry<>();
         if (node == null)
@@ -53,14 +53,14 @@ public class TreeMap<K extends Comparable<K>, V extends Comparable<V>> implement
 
         element.setKey(node.key);
         element.setValue(node.value);
-        return element;
+        return element.getValue();
     }
 
     public int size() {
         return size;
     }
 
-    public Iterator<V> iterator() {
+    public Iterator<Entry<K,V>> iterator() {
         return new TreeMapIterator(root);
     }
 
@@ -240,7 +240,7 @@ public class TreeMap<K extends Comparable<K>, V extends Comparable<V>> implement
         return node;
     }
 
-    private class TreeMapIterator implements Iterator<V> {
+    private class TreeMapIterator implements Iterator<Entry<K,V>> {
         private Node<K,V> next;
 
         TreeMapIterator(Node root) {
@@ -255,23 +255,23 @@ public class TreeMap<K extends Comparable<K>, V extends Comparable<V>> implement
             return next != null;
         }
 
-        public V next() {
+        public Entry<K,V> next() {
             Node<K,V> r = next;
             if (next.right != null) {
                 next = next.right;
                 while (next.left != null)
                     next = next.left;
-                return r.value;
+                return new Entry<>(r.key,r.value);
             }
 
             while (true) {
                 if (next.parent == null) {
                     next = null;
-                    return r.value;
+                    return new Entry<>(r.key,r.value);
                 }
                 if (next.parent.left == next) {
                     next = next.parent;
-                    return r.value;
+                    return new Entry<>(r.key,r.value);
                 }
 
                 next = next.parent;

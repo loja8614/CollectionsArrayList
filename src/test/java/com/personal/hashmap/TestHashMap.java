@@ -4,14 +4,13 @@ import com.personal.Iterator;
 import com.personal.map.Map;
 import com.personal.map.domain.Entry;
 import com.personal.map.hahsmap.HashMap;
-import com.personal.set.hashset.HashSet;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class TestHashMap {
+class TestHashMap {
     @Test
-    public void givenNewHashMap_whenSize_thenZero() {
+    void givenNewHashMap_whenSize_thenZero() {
 
         //Given:
         Map<Integer, String> hashMap = new HashMap<>();
@@ -24,7 +23,7 @@ public class TestHashMap {
     }
 
     @Test
-    public void givenNewHashMap_whenPutElement_thenSizeOne() {
+     void givenNewHashMap_whenPutElement_thenSizeOne() {
 
         //Given:
         Map<String, String> hashMap = new HashMap<>();
@@ -38,7 +37,7 @@ public class TestHashMap {
     }
 
     @Test
-    public void givenAnElementInHashMap_whenPutEqualElement_thenSizeOne() {
+     void givenAnElementInHashMap_whenPutEqualElement_thenSizeOne() {
 
         //Given:
         Map<String, String> hashMap = new HashMap<>();
@@ -53,7 +52,7 @@ public class TestHashMap {
     }
 
     @Test
-    public void givenTwoElementsInHashMap_whenRemoveOne_thenSizeOne() {
+     void givenTwoElementsInHashMap_whenRemoveOne_thenSizeOne() {
 
         //Given:
         Map<Integer, String> hashMap = new HashMap<>();
@@ -69,7 +68,7 @@ public class TestHashMap {
     }
 
     @Test
-    public void givenFourElementsInHashMap_whenRemoveTow_thenSizeTwo() {
+     void givenFourElementsInHashMap_whenRemoveTow_thenSizeTwo() {
 
         //Given:
         Map<Integer, String> hashMap = new HashMap<>();
@@ -87,7 +86,7 @@ public class TestHashMap {
         assertEquals(2, size);
     }
     @Test
-    public void givenFourElementsInHashMap_whenGet4_thenElement04() {
+     void givenFourElementsInHashMap_whenGet4_thenElement04() {
 
         //Given:
         Map<Integer, String> hashMap = new HashMap<>();
@@ -97,15 +96,16 @@ public class TestHashMap {
         hashMap.put(4, "Element04");
 
         //When:
-        Entry<Integer,String> element=hashMap.get(4);
+        String element=hashMap.get(4);
 
 
         //Then:
-        assertEquals("Element04", element.getValue());
-        assertEquals(4, element.getKey());
+        assertEquals("Element04", element);
+
     }
+
     @Test
-    public void givenFourElementsInHashMap_whenGet5_thenNull() {
+     void givenFourElementsInHashMap_whenGet5_thenNull() {
 
         //Given:
         Map<Integer, String> hashMap = new HashMap<>();
@@ -115,15 +115,15 @@ public class TestHashMap {
         hashMap.put(4, "Element04");
 
         //When:
-        Entry<Integer,String> element=hashMap.get(5);
+      String  element=hashMap.get(5);
 
 
         //Then:
-        assertEquals(null, element);
+        assertNull(element);
     }
 
     @Test
-    public void givenAnElementInHashMap_whenContainsElement1_thenTrue() {
+     void givenAnElementInHashMap_whenContainsElement1_thenTrue() {
 
         //Given:
         Map<Integer, String> hashMap = new HashMap<>();
@@ -133,11 +133,11 @@ public class TestHashMap {
         boolean isElementPresent = hashMap.contains(1);
 
         //Then:
-        assertEquals(true, isElementPresent);
+        assertTrue(isElementPresent);
     }
 
     @Test
-    public void givenAnElementInHashMap_whenNotContainsElement1_thenFalse() {
+     void givenAnElementInHashMap_whenNotContainsElement1_thenFalse() {
 
         //Given:
         Map<Integer, String> hashMap = new HashMap<>();
@@ -147,11 +147,11 @@ public class TestHashMap {
         boolean isElementPresent = hashMap.contains(2);
 
         //Then:
-        assertEquals(false, isElementPresent);
+        assertFalse(isElementPresent);
     }
 
     @Test
-    public void givenElementsInHashMap_whenIterator_thenGetValuesElement1Element2() {
+     void givenElementsInHashMap_whenIterator_thenGetValuesElement1Element2() {
 
         //Given:
         //Given:
@@ -160,20 +160,20 @@ public class TestHashMap {
         hashMap.put("2", "Element02");
 
         //When:
-        Iterator<String> iteratorHashSet = hashMap.iterator();
+        Iterator<Entry<String,String>> iteratorHashSet = hashMap.iterator();
 
         //Then:
         iteratorHashSet.hasNext();
-        String strIterator = iteratorHashSet.next();
+        String strIterator = iteratorHashSet.next().getValue();
         assertEquals("Element01", strIterator);
         iteratorHashSet.hasNext();
-        strIterator = iteratorHashSet.next();
+        strIterator = iteratorHashSet.next().getValue();
         assertEquals("Element02", strIterator);
 
     }
 
     @Test
-    public void givenFortyElementsInHashMap_whenIterator_thenGetSize40() {
+     void givenFortyElementsInHashMap_whenIterator_thenGetSize40() {
 
         //Given:
         //Given:
@@ -185,7 +185,7 @@ public class TestHashMap {
         int count = 0;
 
         //When:
-        Iterator<String> iteratorHashSet = hashMap.iterator();
+        Iterator<Entry<Integer,String>> iteratorHashSet = hashMap.iterator();
         while (iteratorHashSet.hasNext()) {
             iteratorHashSet.next();
             count++;

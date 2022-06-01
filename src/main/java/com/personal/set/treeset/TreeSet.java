@@ -1,7 +1,6 @@
 package com.personal.set.treeset;
 
 import com.personal.Iterator;
-import com.personal.arraylist.ArrayList;
 import com.personal.set.Set;
 
 public class TreeSet<T extends Comparable<T>> implements Set<T> {

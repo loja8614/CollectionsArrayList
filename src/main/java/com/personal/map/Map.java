@@ -26,7 +26,7 @@ public interface Map<K , V>  {
      * *@param  element whose presence in this set is to be tested
      * @return {@code true} if this set contains the specified element
      */
-    Entry <K,V> get(K key);
+    V get(K key);
 
 
     /**
@@ -40,6 +40,6 @@ public interface Map<K , V>  {
      *
      * @return an iterator over the elements in this map
      */
-    Iterator<V>  iterator();
+    Iterator<Entry<K,V>>  iterator();
 }
 

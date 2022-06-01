@@ -1,17 +1,17 @@
 package com.personal.linkedlist;
 
 import com.personal.Iterator;
-import com.personal.ReverseIterator;
 import org.junit.jupiter.api.Test;
+
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-public class TestLinkedList  {
+class TestLinkedList {
 
     @Test
-    public void givenNewLinkedList_whenSize_thenZero() {
+    void givenNewLinkedList_whenSize_thenZero() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
 
         //When:
         int size = lnkList.size();
@@ -19,11 +19,12 @@ public class TestLinkedList  {
         //Then:
         assertEquals(0, size);
     }
+
     @Test
-    public void givenNewLinkedList_whenAddNewElement_thenSizeOne() {
+    void givenNewLinkedList_whenAddNewElement_thenSizeOne() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
 
         //When:
         lnkList.add("NewElement0");
@@ -32,11 +33,12 @@ public class TestLinkedList  {
         //Then:
         assertEquals(1, size);
     }
+
     @Test
-    public void givenNewLinkedList_whenAddNewElement_thenGetValueNewElement0() {
+    void givenNewLinkedList_whenAddNewElement_thenGetValueNewElement0() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
 
         //When:
         lnkList.add("NewElement0");
@@ -45,24 +47,26 @@ public class TestLinkedList  {
         String strValueElement = lnkList.getAt(0);
         assertEquals(strValueElement, "NewElement0");
     }
+
     @Test
-    public void givenElementInLinkedList_whenAddNewElement_thenGetValueElement() {
+    void givenElementInLinkedList_whenAddNewElement_thenGetValueElement() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("Element");
 
         //When:
-        String strElement=lnkList.getAt(0);
+        String strElement = lnkList.getAt(0);
 
         //Then:
         assertEquals(strElement, "Element");
     }
+
     @Test
-    public void givenLinkedList_whenAddNextElement_thenSizeTwo() {
+    void givenLinkedList_whenAddNextElement_thenSizeTwo() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
 
 
         //When:
@@ -70,100 +74,106 @@ public class TestLinkedList  {
         lnkList.add("NextElement2");
 
         //Then:
-        int size=lnkList.size();
+        int size = lnkList.size();
         assertEquals(size, 2);
     }
+
     @Test
-    public void givenLinkedList_whenInsertNewElement_thenSizeOne() {
+    void givenLinkedList_whenInsertNewElement_thenSizeOne() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
 
         //When:
-        lnkList.insert(0,"NewElement0");
+        lnkList.insert(0, "NewElement0");
 
         //Then:
-        int size=lnkList.size();
+        int size = lnkList.size();
         assertEquals(size, 1);
     }
+
     @Test
-    public void givenLinkedList_whenInsertNewElement_thenGetValueIndexZeroNewElement0() {
+    void givenLinkedList_whenInsertNewElement_thenGetValueIndexZeroNewElement0() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
 
         //When:
-        lnkList.insert(0,"NewElement0");
+        lnkList.insert(0, "NewElement0");
 
         //Then:
-        String strElement=lnkList.getAt(0);
+        String strElement = lnkList.getAt(0);
         assertEquals(strElement, "NewElement0");
     }
+
     @Test
-    public void givenElementsInLinkedList_whenInsertNewElementIndexOne_thenGetValueIndexOneCopyElement01() {
+    void givenElementsInLinkedList_whenInsertNewElementIndexOne_thenGetValueIndexOneCopyElement01() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement0");
         lnkList.add("NewElement1");
 
         //When:
-        lnkList.insert(1,"CopyElement01");
+        lnkList.insert(1, "CopyElement01");
 
         //Then:
-        String strElement=lnkList.getAt(1);
+        String strElement = lnkList.getAt(1);
         assertEquals(strElement, "CopyElement01");
     }
+
     @Test
-    public void givenElementsInLinkedList_whenInsertNewElementIndexOne_thenGetValueNextIndexNewElement1() {
+    void givenElementsInLinkedList_whenInsertNewElementIndexOne_thenGetValueNextIndexNewElement1() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement0");
         lnkList.add("NewElement1");
 
         //When:
-        lnkList.insert(1,"CopyElement01");
+        lnkList.insert(1, "CopyElement01");
 
         //Then:
-        String strElement=lnkList.getAt(lnkList.size());
+        String strElement = lnkList.getAt(lnkList.size());
         assertEquals(strElement, "NewElement1");
     }
+
     @Test
-    public void givenLinkedList_whenInsertNewLastElement_thenGetValueLastIndexLastElement() {
+    void givenLinkedList_whenInsertNewLastElement_thenGetValueLastIndexLastElement() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement");
 
         //When:
-        lnkList.insert(0,"LastElement");
+        lnkList.insert(0, "LastElement");
 
         //Then:
-        String strElement=lnkList.getAt(0);
+        String strElement = lnkList.getAt(0);
         assertEquals(strElement, "LastElement");
     }
+
     @Test
-    public void givenElementsInLinkedList_whenSetNewValueIndexZero_thenGetValueIndexZeroElementWithChanges() {
+    void givenElementsInLinkedList_whenSetNewValueIndexZero_thenGetValueIndexZeroElementWithChanges() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement0");
         lnkList.add("NewElement1");
 
         //When:
-        lnkList.setAt(0,"ElementWithChanges");
+        lnkList.setAt(0, "ElementWithChanges");
 
         //Then:
-        String strElement=lnkList.getAt(0);
+        String strElement = lnkList.getAt(0);
         assertEquals(strElement, "ElementWithChanges");
     }
 
     @Test
-    public void givenOneElementInLinkedList_whenRemoveElement_thenSizeZero() {
+    void givenOneElementInLinkedList_whenRemoveElement_thenSizeZero() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement");
 
         //When:
@@ -173,11 +183,12 @@ public class TestLinkedList  {
         int size = lnkList.size();
         assertEquals(size, 0);
     }
+
     @Test
-    public void givenTwoElementsInLinkedList_whenRemoveElementIndex1_thenSizeOne() {
+    void givenTwoElementsInLinkedList_whenRemoveElementIndex1_thenSizeOne() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement0");
         lnkList.add("NewElement1");
 
@@ -188,11 +199,12 @@ public class TestLinkedList  {
         int size = lnkList.size();
         assertEquals(size, 1);
     }
+
     @Test
-    public void givenFourElementsInLinkedList_whenRemoveElementIndex2_thenGetValueNewElement3() {
+    void givenFourElementsInLinkedList_whenRemoveElementIndex2_thenGetValueNewElement3() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement0");
         lnkList.add("NewElement1");
         lnkList.add("NewElement2");
@@ -202,15 +214,15 @@ public class TestLinkedList  {
         lnkList.remove(2);
 
         //Then:
-        String elementIndex2=lnkList.getAt(3);
+        String elementIndex2 = lnkList.getAt(3);
         assertEquals(elementIndex2, "NewElement3");
     }
 
     @Test
-    public void givenFourElementsInLinkedList_whenRemoveElementIndex0_thenGetValueIndex0NewElement1() {
+    void givenFourElementsInLinkedList_whenRemoveElementIndex0_thenGetValueIndex0NewElement1() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement0");
         lnkList.add("NewElement1");
         lnkList.add("NewElement2");
@@ -220,15 +232,15 @@ public class TestLinkedList  {
         lnkList.remove(0);
 
         //Then:
-        String elementIndex0=lnkList.getAt(0);
+        String elementIndex0 = lnkList.getAt(0);
         assertEquals(elementIndex0, "NewElement1");
     }
 
     @Test
-    public void givenFourElementsInLinkedList_whenRemoveLastElement_thenGetValueLastNewElement2() {
+    void givenFourElementsInLinkedList_whenRemoveLastElement_thenGetValueLastNewElement2() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement0");
         lnkList.add("NewElement1");
         lnkList.add("NewElement2");
@@ -238,14 +250,15 @@ public class TestLinkedList  {
         lnkList.remove(3);
 
         //Then:
-        String elementIndex2=lnkList.getAt(2);
+        String elementIndex2 = lnkList.getAt(2);
         assertEquals(elementIndex2, "NewElement2");
     }
+
     @Test
-    public void givenFourElementsInLinkedList_whenRemoveIndex2Element_thenGetValueIndex2NewElement3() {
+    void givenFourElementsInLinkedList_whenRemoveIndex2Element_thenGetValueIndex2NewElement3() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement0");
         lnkList.add("NewElement1");
         lnkList.add("NewElement2");
@@ -255,15 +268,15 @@ public class TestLinkedList  {
         lnkList.remove(2);
 
         //Then:
-        String elementIndex2=lnkList.getAt(2);
+        String elementIndex2 = lnkList.getAt(2);
         assertEquals(elementIndex2, "NewElement3");
     }
 
     @Test
-    public void givenFourElementsInLinkedList_whenRemoveAll_thenSizeZero() {
+    void givenFourElementsInLinkedList_whenRemoveAll_thenSizeZero() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement0");
         lnkList.add("NewElement1");
         lnkList.add("NewElement2");
@@ -273,14 +286,15 @@ public class TestLinkedList  {
         lnkList.removeAll();
 
         //Then:
-        int size =lnkList.size();
+        int size = lnkList.size();
         assertEquals(size, 0);
     }
+
     @Test
-    public void givenTwoElementsInLinked_whenIterate_thenGetValuesNewElement0NewElement1() {
+    void givenTwoElementsInLinked_whenIterate_thenGetValuesNewElement0NewElement1() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement0");
         lnkList.add("NewElement1");
 
@@ -296,24 +310,25 @@ public class TestLinkedList  {
         assertEquals(varIterator.next(), "NewElement1");
 
     }
+
     @Test
-    public void givenTwoElementsInLinked_whenReverseIterate_thenGetValuesNewElement1NewElement0() {
+    void givenTwoElementsInLinked_whenReverseIterate_thenGetValuesNewElement1NewElement0() {
 
         //Given:
-        LinkedList<String> lnkList = new LinkedList<String>();
+        LinkedList<String> lnkList = new LinkedList<>();
         lnkList.add("NewElement0");
         lnkList.add("NewElement1");
 
 
         //When:
-        ReverseIterator<String> varRevIterator = (ReverseIterator) lnkList.iterator();
+        Iterator<String> varIterator = lnkList.reverseIterator();
 
         //Then:
-        varRevIterator.hasPrev();
-        assertEquals(varRevIterator.previous(), "NewElement1");
+        varIterator.hasNext();
+        assertEquals(varIterator.next(), "NewElement1");
 
-        varRevIterator.hasPrev();
-        assertEquals(varRevIterator.previous(), "NewElement0");
+        varIterator.hasNext();
+        assertEquals(varIterator.next(), "NewElement0");
 
     }
 }

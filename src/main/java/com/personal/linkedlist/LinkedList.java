@@ -2,7 +2,6 @@ package com.personal.linkedlist;
 
 import com.personal.Iterator;
 import com.personal.List;
-import com.personal.ReverseIterator;
 
 public class LinkedList<T> implements List<T> {
 
@@ -10,9 +9,6 @@ public class LinkedList<T> implements List<T> {
     private Node first;
     private Node last;
 
-    public LinkedList() {
-
-    }
 
     public void add(T element)    {
         linkLast(element);
@@ -36,7 +32,6 @@ public class LinkedList<T> implements List<T> {
 
     public void setAt(int index, T element) {
         Node nodeSetAt = getNode(index);
-        T oldVal = (T) nodeSetAt.item;
         nodeSetAt.item = element;
     }
 
@@ -64,20 +59,20 @@ public class LinkedList<T> implements List<T> {
         return size;
     }
 
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         return new ListIterator();
     }
+    public Iterator<T> reverseIterator() {
+        return new ListReverseIterator();
+    }
 
-    private class ListIterator implements Iterator, ReverseIterator {
+    private class ListIterator implements Iterator {
         private Node next;
-        private Node previous;
         private int nextIndex;
-        private int previousIndex=size-1;
         int index = 0;
 
         ListIterator() {
             this.next = getNode(index);
-            this.previous=getNode(size-1);
         }
 
         public boolean hasNext() {
@@ -95,19 +90,32 @@ public class LinkedList<T> implements List<T> {
             return varReturned;
         }
 
-        public boolean hasPrev() {
+
+    }
+
+    private class ListReverseIterator implements Iterator {
+        private Node previous;
+        private int previousIndex=size-1;
+        int index = 0;
+
+        ListReverseIterator() {
+            this.previous=getNode(size-1);
+        }
+
+        public boolean hasNext() {
             return previousIndex >=0;
         }
 
-        public T previous() {
+        public T next() {
             T varReturned = null;
-            if (hasPrev()) {
+            if (hasNext()) {
                 varReturned = (T) previous.item;
                 previous = previous.prev;
                 previousIndex--;
             }
             return varReturned;
         }
+
     }
 
     private void linkLast(T element) {

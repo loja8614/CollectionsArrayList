@@ -6,11 +6,11 @@ import com.personal.map.domain.Entry;
 import com.personal.map.treemap.TreeMap;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
-public class TestTreeMap {
+class TestTreeMap {
     @Test
-    public void givenNewTreeMap_whenSize_thenZero() {
+    void givenNewTreeMap_whenSize_thenZero() {
 
         //Given:
         Map<String, String> varTreeMap = new TreeMap<>();
@@ -23,7 +23,7 @@ public class TestTreeMap {
     }
 
     @Test
-    public void givenNewTreeMap_whenAddNewElement_thenSizeOne() {
+    void givenNewTreeMap_whenAddNewElement_thenSizeOne() {
 
         //Given:
         Map<Integer, String> varTreeMap = new TreeMap<>();
@@ -37,7 +37,7 @@ public class TestTreeMap {
     }
 
     @Test
-    public void givenNewTreeMap_whenAddNewTenElement_thenSizeTen() {
+    void givenNewTreeMap_whenAddNewTenElement_thenSizeTen() {
 
         //Given:
         Map<Integer, String> varTreeMap = new TreeMap<>();
@@ -60,7 +60,7 @@ public class TestTreeMap {
     }
 
     @Test
-    public void givenNewTreeMap_whenAddNewTenStringElement_thenSizeTen() {
+    void givenNewTreeMap_whenAddNewTenStringElement_thenSizeTen() {
 
         //Given:
         Map<String, String> varTreeMap = new TreeMap<>();
@@ -72,9 +72,9 @@ public class TestTreeMap {
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
         int size = varTreeMap.size();
@@ -84,7 +84,7 @@ public class TestTreeMap {
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenContainsPablo_thenTrue() {
+    void givenTenStringElementsInTreeMap_whenContainsPablo_thenTrue() {
 
         //Given:
         Map<String, String> varTreeMap = new TreeMap<>();
@@ -94,21 +94,21 @@ public class TestTreeMap {
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
         //When:
         boolean isPabloPresent = varTreeMap.contains("Pablo");
 
         //Then:
-        assertEquals(isPabloPresent, true);
+        assertTrue(isPabloPresent);
     }
 
 
     @Test
-    public void givenTenElementsInTreeMap_whenRemove12_thenSize9() {
+    void givenTenElementsInTreeMap_whenRemove12_thenSize9() {
 
         //Given:
         Map<Integer, String> varTreeMap = new TreeMap<>();
@@ -130,8 +130,9 @@ public class TestTreeMap {
         int size = varTreeMap.size();
         assertEquals(size, 9);
     }
+
     @Test
-    public void givenTenStringElementsInTreeMap_whenGetPablo_thenPabloRojas() {
+    void givenTenStringElementsInTreeMap_whenGetPablo_thenPabloRojas() {
 
         //Given:
         Map<String, String> varTreeMap = new TreeMap<>();
@@ -141,23 +142,20 @@ public class TestTreeMap {
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
         //When:
-        Entry<String,String > element = varTreeMap.get("Juan");
-        String key =element.getKey();
-        String value=element.getValue();
-
+        String element = varTreeMap.get("Juan");
 
         //Then:
-        assertEquals(key, "Juan");
-        assertEquals(value, "Rojas");
+        assertEquals(element, "Rojas");
     }
+
     @Test
-    public void givenTenStringElementsInTreeMap_whenGetNull_thenNull() {
+    void givenTenStringElementsInTreeMap_whenGetNull_thenNull() {
 
         //Given:
         Map<String, String> varTreeMap = new TreeMap<>();
@@ -167,20 +165,21 @@ public class TestTreeMap {
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
         //When:
-        Entry<String,String > element = varTreeMap.get("Laura");
+        String element = varTreeMap.get("Laura");
 
 
         //Then:
-        assertEquals(element, null);
+        assertNull(element);
     }
+
     @Test
-    public void givenTenElementsInTreeMap_whenRemove12_thenNotContains12() {
+    void givenTenElementsInTreeMap_whenRemove12_thenNotContains12() {
 
         //Given:
         Map<Integer, String> varTreeMap = new TreeMap<>();
@@ -200,11 +199,11 @@ public class TestTreeMap {
         boolean isElementPresent = varTreeMap.contains(12);
 
         //Then:
-        assertEquals(false, isElementPresent);
+        assertFalse(isElementPresent);
     }
 
     @Test
-    public void givenTenElementsInTreeMap_whenRemove52_thenSize9() {
+    void givenTenElementsInTreeMap_whenRemove52_thenSize9() {
 
         //Given:
         Map<Integer, String> varTreeMap = new TreeMap<>();
@@ -226,11 +225,11 @@ public class TestTreeMap {
         int size = varTreeMap.size();
         boolean isElementPresent = varTreeMap.contains(52);
         assertEquals(size, 9);
-        assertEquals(false, isElementPresent);
+        assertFalse(isElementPresent);
     }
 
     @Test
-    public void givenTenElementsInTreeMap_whenRemove6_thenSize9() {
+    void givenTenElementsInTreeMap_whenRemove6_thenSize9() {
 
         //Given:
         Map<Integer, String> varTreeMap = new TreeMap<>();
@@ -252,12 +251,12 @@ public class TestTreeMap {
         int size = varTreeMap.size();
         boolean isElementPresent = varTreeMap.contains(6);
         assertEquals(size, 9);
-        assertEquals(false, isElementPresent);
+        assertFalse(isElementPresent);
     }
 
 
     @Test
-    public void givenFiveElementsInTreeMap_whenContains13_thenFalse() {
+    void givenFiveElementsInTreeMap_whenContains13_thenFalse() {
 
         //Given:
         Map<Integer, String> varTreeMap = new TreeMap<>();
@@ -271,11 +270,11 @@ public class TestTreeMap {
         boolean isThereElement = varTreeMap.contains(13);
 
         //Then:
-        assertEquals(isThereElement, false);
+        assertFalse(isThereElement);
     }
 
     @Test
-    public void givenFiveElementsInTreeMap_whenContains60_thenTrue() {
+    void givenFiveElementsInTreeMap_whenContains60_thenTrue() {
 
         //Given:
         Map<Integer, String> varTreeMap = new TreeMap<>();
@@ -289,14 +288,14 @@ public class TestTreeMap {
         boolean isThereElement = varTreeMap.contains(60);
 
         //Then:
-        assertEquals(isThereElement, true);
+        assertTrue(isThereElement);
     }
 
     @Test
-    public void given15ElementsInTreeMap_whenSize_then15() {
+    void given15ElementsInTreeMap_whenSize_then15() {
 
         //Given:
-        Map<Integer, String> varTreeMap = new TreeMap<Integer, String>();
+        Map<Integer, String> varTreeMap = new TreeMap<>();
         varTreeMap.put(47, "Element A");
         varTreeMap.put(60, "Element B");
         varTreeMap.put(22, "Element C");
@@ -321,14 +320,14 @@ public class TestTreeMap {
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenRemoveElement_theElementIsNotPresent() {
+    void givenTenStringElementsInTreeMap_whenRemoveElement_theElementIsNotPresent() {
 
         //Given:
-        Map<String, String> varTreeMap = new TreeMap<String, String>();
+        Map<String, String> varTreeMap = new TreeMap<>();
         varTreeMap.put("Juan", "Rojas");
         varTreeMap.put("Alejandra", "Mejia");
         varTreeMap.put("Ana", "Martinez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
 
@@ -337,23 +336,23 @@ public class TestTreeMap {
 
         //Then:
         boolean isPresentElement = varTreeMap.contains("Juan");
-        assertEquals(false, isPresentElement);
+        assertFalse(isPresentElement);
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenRemoveElement_theSize9() {
+    void givenTenStringElementsInTreeMap_whenRemoveElement_theSize9() {
 
         //Given:
-        Map<String, String> varTreeMap = new TreeMap<String, String>();
+        Map<String, String> varTreeMap = new TreeMap<>();
         varTreeMap.put("Juan", "Rojas");
         varTreeMap.put("Alejandra", "Mejia");
         varTreeMap.put("Maria", "Lopez");
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
 
@@ -366,19 +365,19 @@ public class TestTreeMap {
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenNotInsertElementDuplicated_theSize10() {
+    void givenTenStringElementsInTreeMap_whenNotInsertElementDuplicated_theSize10() {
 
         //Given:
-        Map<String, String> varTreeMap = new TreeMap<String, String>();
+        Map<String, String> varTreeMap = new TreeMap<>();
         varTreeMap.put("Juan", "Rojas");
         varTreeMap.put("Alejandra", "Mejia");
         varTreeMap.put("Maria", "Lopez");
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
 
@@ -391,25 +390,25 @@ public class TestTreeMap {
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenIterate_then10Elements() {
+    void givenTenStringElementsInTreeMap_whenIterate_then10Elements() {
 
         //Given:
-        Map<String, String> varTreeMap = new TreeMap<String, String>();
+        Map<String, String> varTreeMap = new TreeMap<>();
         varTreeMap.put("Juan", "Rojas");
         varTreeMap.put("Alejandra", "Mejia");
         varTreeMap.put("Maria", "Lopez");
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
         int count = 0;
 
         //When:
-        Iterator<String> iterator = varTreeMap.iterator();
+        Iterator<Entry<String, String>> iterator = varTreeMap.iterator();
         while (iterator.hasNext()) {
             iterator.next();
             count++;
@@ -421,19 +420,19 @@ public class TestTreeMap {
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenRemoveElement_thenIterate9Element() {
+    void givenTenStringElementsInTreeMap_whenRemoveElement_thenIterate9Element() {
 
         //Given:
-        Map<String, String> varTreeMap = new TreeMap<String, String>();
+        Map<String, String> varTreeMap = new TreeMap<>();
         varTreeMap.put("Juan", "Rojas");
         varTreeMap.put("Alejandra", "Mejia");
         varTreeMap.put("Maria", "Lopez");
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
         int count = 0;
@@ -441,7 +440,7 @@ public class TestTreeMap {
         //When:
         varTreeMap.remove("Hugo");
 
-        Iterator<String> iterator = varTreeMap.iterator();
+        Iterator<Entry<String, String>> iterator = varTreeMap.iterator();
         while (iterator.hasNext()) {
             iterator.next();
             count++;
@@ -453,26 +452,26 @@ public class TestTreeMap {
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenRemoveElement_theNotContainsElement() {
+    void givenTenStringElementsInTreeMap_whenRemoveElement_theNotContainsElement() {
 
         //Given:
-        Map<String, String> varTreeMap = new TreeMap<String, String>();
+        Map<String, String> varTreeMap = new TreeMap<>();
         varTreeMap.put("Juan", "Rojas");
         varTreeMap.put("Alejandra", "Mejia");
         varTreeMap.put("Maria", "Lopez");
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
 
         //When:
         varTreeMap.remove("Hugo");
         int count = 0;
-        Iterator<String> iterator = varTreeMap.iterator();
+        Iterator<Entry<String, String>> iterator = varTreeMap.iterator();
         while (iterator.hasNext()) {
             iterator.next();
             count++;
@@ -482,30 +481,30 @@ public class TestTreeMap {
         int size = varTreeMap.size();
         boolean isPresentElement = varTreeMap.contains("Hugo");
         assertEquals(count, size);
-        assertEquals(isPresentElement, false);
+        assertFalse(isPresentElement);
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenRemoveJuan_theNotContainsJuan() {
+    void givenTenStringElementsInTreeMap_whenRemoveJuan_theNotContainsJuan() {
 
         //Given:
-        Map<String, String> varTreeMap = new TreeMap<String, String>();
+        Map<String, String> varTreeMap = new TreeMap<>();
         varTreeMap.put("Juan", "Rojas");
         varTreeMap.put("Alejandra", "Mejia");
         varTreeMap.put("Maria", "Lopez");
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
 
         //When:
         varTreeMap.remove("Juan");
         int count = 0;
-        Iterator<String> iterator = varTreeMap.iterator();
+        Iterator<Entry<String, String>> iterator = varTreeMap.iterator();
         while (iterator.hasNext()) {
             iterator.next();
             count++;
@@ -515,30 +514,30 @@ public class TestTreeMap {
         int size = varTreeMap.size();
         boolean isPresentElement = varTreeMap.contains("Juan");
         assertEquals(count, size);
-        assertEquals(isPresentElement, false);
+        assertFalse(isPresentElement);
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenRemoveJulieta_theNotContainsJulieta() {
+    void givenTenStringElementsInTreeMap_whenRemoveJulieta_theNotContainsJulieta() {
 
         //Given:
-        Map<String, String> varTreeMap = new TreeMap<String, String>();
+        Map<String, String> varTreeMap = new TreeMap<>();
         varTreeMap.put("Juan", "Rojas");
         varTreeMap.put("Alejandra", "Mejia");
         varTreeMap.put("Maria", "Lopez");
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
 
         //When:
         varTreeMap.remove("Julieta");
         int count = 0;
-        Iterator<String> iterator = varTreeMap.iterator();
+        Iterator<Entry<String, String>> iterator = varTreeMap.iterator();
         while (iterator.hasNext()) {
             iterator.next();
             count++;
@@ -548,30 +547,30 @@ public class TestTreeMap {
         int size = varTreeMap.size();
         boolean isPresentElement = varTreeMap.contains("Julieta");
         assertEquals(count, size);
-        assertEquals(isPresentElement, false);
+        assertFalse(isPresentElement);
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenRemoveMaria_theNotContainsMaria() {
+    void givenTenStringElementsInTreeMap_whenRemoveMaria_theNotContainsMaria() {
 
         //Given:
-        Map<String, String> varTreeMap = new TreeMap<String, String>();
+        Map<String, String> varTreeMap = new TreeMap<>();
         varTreeMap.put("Juan", "Rojas");
         varTreeMap.put("Alejandra", "Mejia");
         varTreeMap.put("Maria", "Lopez");
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
 
         //When:
         varTreeMap.remove("Maria");
         int count = 0;
-        Iterator<String> iterator = varTreeMap.iterator();
+        Iterator<Entry<String, String>> iterator = varTreeMap.iterator();
         while (iterator.hasNext()) {
             iterator.next();
             count++;
@@ -581,30 +580,30 @@ public class TestTreeMap {
         int size = varTreeMap.size();
         boolean isPresentElement = varTreeMap.contains("Maria");
         assertEquals(count, size);
-        assertEquals(isPresentElement, false);
+        assertFalse(isPresentElement);
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenRemoveAna_theNotContainsAna() {
+    void givenTenStringElementsInTreeMap_whenRemoveAna_theNotContainsAna() {
 
         //Given:
-        Map<String, String> varTreeMap = new TreeMap<String, String>();
+        Map<String, String> varTreeMap = new TreeMap<>();
         varTreeMap.put("Juan", "Rojas");
         varTreeMap.put("Alejandra", "Mejia");
         varTreeMap.put("Maria", "Lopez");
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
 
         //When:
         varTreeMap.remove("Ana");
         int count = 0;
-        Iterator<String> iterator = varTreeMap.iterator();
+        Iterator<Entry<String, String>> iterator = varTreeMap.iterator();
         while (iterator.hasNext()) {
             iterator.next();
             count++;
@@ -614,30 +613,30 @@ public class TestTreeMap {
         int size = varTreeMap.size();
         boolean isPresentElement = varTreeMap.contains("Ana");
         assertEquals(count, size);
-        assertEquals(isPresentElement, false);
+        assertFalse(isPresentElement);
     }
 
     @Test
-    public void givenTenStringElementsInTreeMap_whenRemoveRosa_theNotContainsRosa() {
+    void givenTenStringElementsInTreeMap_whenRemoveRosa_theNotContainsRosa() {
 
         //Given:
-        Map<String, String> varTreeMap = new TreeMap<String, String>();
+        Map<String, String> varTreeMap = new TreeMap<>();
         varTreeMap.put("Juan", "Rojas");
         varTreeMap.put("Alejandra", "Mejia");
         varTreeMap.put("Maria", "Lopez");
         varTreeMap.put("Ana", "Martinez");
         varTreeMap.put("Julieta", "Alvarez");
         varTreeMap.put("Rosa", "Jimenez");
-        varTreeMap.put("Pedro", "Rosas");
+        varTreeMap.put("Pedro", "Rosa");
         varTreeMap.put("Pablo", "Ramirez");
-        varTreeMap.put("Hugo", "Lugo");
+        varTreeMap.put("Hugo", "Luna");
         varTreeMap.put("Hector", "Morales");
 
 
         //When:
         varTreeMap.remove("Rosa");
         int count = 0;
-        Iterator<String> iterator = varTreeMap.iterator();
+        Iterator<Entry<String, String>> iterator = varTreeMap.iterator();
         while (iterator.hasNext()) {
             iterator.next();
             count++;
@@ -647,7 +646,7 @@ public class TestTreeMap {
         int size = varTreeMap.size();
         boolean isPresentElement = varTreeMap.contains("Rosa");
         assertEquals(count, size);
-        assertEquals(isPresentElement, false);
+        assertFalse(isPresentElement);
     }
 
 }

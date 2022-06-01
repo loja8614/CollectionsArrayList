@@ -5,16 +5,15 @@ import com.personal.set.Set;
 import com.personal.set.hashset.HashSet;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 
-public class TestHashSet {
+class TestHashSet {
     @Test
-    public void givenNewHashSet_whenSize_thenZero() {
+     void givenNewHashSet_whenSize_thenZero() {
 
         //Given:
-        Set<String> arrHashSet = new HashSet<String>();
+        Set<String> arrHashSet = new HashSet<>();
 
         //When:
         int size = arrHashSet.size();
@@ -23,74 +22,74 @@ public class TestHashSet {
         assertEquals(0,size);
     }
     @Test
-    public void givenNewHashSet_whenAdd_thenSizeOne() {
+     void givenNewHashSet_whenAdd_thenSizeOne() {
 
         //Given:
-        Set<String> arrHashSet = new HashSet<String>();
+        Set<String> arrHashSet = new HashSet<>();
 
         //When:
-        arrHashSet.add("Elemento1");
+        arrHashSet.add("Element1");
 
         //Then:
         int size = arrHashSet.size();
         assertEquals(1,size);
     }
     @Test
-    public void givenAnElementInHashSet_whenAddEqualElement_thenSizeOne() {
+     void givenAnElementInHashSet_whenAddEqualElement_thenSizeOne() {
 
         //Given:
-        Set<String> arrHashSet = new HashSet<String>();
-        arrHashSet.add("Elemento1");
+        Set<String> arrHashSet = new HashSet<>();
+        arrHashSet.add("Element1");
 
         //When:
-        arrHashSet.add("Elemento1");
+        arrHashSet.add("Element1");
 
         //Then:
         int size = arrHashSet.size();
         assertEquals(1,size);
     }
     @Test
-    public void givenTwoElementsInHashSet_whenRemoveOne_thenSizeOne() {
+     void givenTwoElementsInHashSet_whenRemoveOne_thenSizeOne() {
 
         //Given:
-        Set<String> arrHashSet = new HashSet<String>();
-        arrHashSet.add("Elemento1");
-        arrHashSet.add("Elemento2");
+        Set<String> arrHashSet = new HashSet<>();
+        arrHashSet.add("Element1");
+        arrHashSet.add("Element2");
 
         //When:
-        arrHashSet.remove("Elemento1");
+        arrHashSet.remove("Element1");
 
         //Then:
         int size = arrHashSet.size();
         assertEquals(1,size);
     }
     @Test
-    public void givenFourElementsInHashSet_whenRemoveTow_thenSizeTwo() {
+     void givenFourElementsInHashSet_whenRemoveTow_thenSizeTwo() {
 
         //Given:
-        Set<String> arrHashSet = new HashSet<String>();
-        arrHashSet.add("Elemento1");
-        arrHashSet.add("Elemento2");
-        arrHashSet.add("Elemento3");
-        arrHashSet.add("Elemento4");
+        Set<String> arrHashSet = new HashSet<>();
+        arrHashSet.add("Elements1");
+        arrHashSet.add("Elements2");
+        arrHashSet.add("Elements3");
+        arrHashSet.add("Elements4");
 
         //When:
-        arrHashSet.remove("Elemento1");
-        arrHashSet.remove("Elemento2");
+        arrHashSet.remove("Elements1");
+        arrHashSet.remove("Elements2");
 
         //Then:
         int size = arrHashSet.size();
         assertEquals(2,size);
     }
     @Test
-    public void givenFourElementsInHashSet_whenRemoveAll_thenSizeZero() {
+     void givenFourElementsInHashSet_whenRemoveAll_thenSizeZero() {
 
         //Given:
-        Set<String> arrHashSet = new HashSet<String>();
-        arrHashSet.add("Elemento1");
-        arrHashSet.add("Elemento2");
-        arrHashSet.add("Elemento3");
-        arrHashSet.add("Elemento4");
+        Set<String> arrHashSet = new HashSet<>();
+        arrHashSet.add("Elements1");
+        arrHashSet.add("Elements2");
+        arrHashSet.add("Elements3");
+        arrHashSet.add("Elements4");
 
         //When:
         arrHashSet.removeAll();
@@ -100,10 +99,10 @@ public class TestHashSet {
         assertEquals(0,size);
     }
     @Test
-    public void givenFortyElementsInHashSet_whenSize_thenSizeForty() {
+     void givenFortyElementsInHashSet_whenSize_thenSizeForty() {
 
         //Given:
-        Set<String> arrHashSet = new HashSet<String>();
+        Set<String> arrHashSet = new HashSet<>();
         for (int i = 0; i < 40; i++) {
             arrHashSet.add("Element " + i);
         }
@@ -114,43 +113,43 @@ public class TestHashSet {
         //Then:
         for (int i = 0; i < 40; i++) {
             boolean isPresent= arrHashSet.contains("Element " + i);
-            assertEquals(isPresent,true);
+            assertTrue(isPresent);
         }
         assertEquals(40,size);
     }
     @Test
-    public void givenAnElementInHashSet_whenContainsElement1_thenTrue() {
+     void givenAnElementInHashSet_whenContainsElement1_thenTrue() {
 
         //Given:
-        Set<String> arrHashSet = new HashSet<String>();
+        Set<String> arrHashSet = new HashSet<>();
         arrHashSet.add("Element1");
 
         //When:
         boolean isElementPresent = arrHashSet.contains("Element1");
 
         //Then:
-        assertEquals(true,isElementPresent);
+        assertTrue(isElementPresent);
     }
     @Test
-    public void givenAnElementInHashSet_whenNotContainsElement1_thenFalse() {
+     void givenAnElementInHashSet_whenNotContainsElement1_thenFalse() {
 
         //Given:
-        Set<String> arrHashSet = new HashSet<String>();
+        Set<String> arrHashSet = new HashSet<>();
         arrHashSet.add("Element1");
 
         //When:
-        boolean isElementPresent = arrHashSet.contains("Elemento1");
+        boolean isElementPresent = arrHashSet.contains("Element01");
 
         //Then:
-        assertEquals(false,isElementPresent);
+        assertFalse(isElementPresent);
     }
     @Test
-    public void givenElementsInHashSet_whenIterator_thenGetValuesElement1Element2() {
+     void givenElementsInHashSet_whenIterator_thenGetValuesElement1Element2() {
 
         //Given:
-        Set<String> arrHashSet = new HashSet<String>();
-        arrHashSet.add("Elemento1");
-        arrHashSet.add("Elemento2");
+        Set<String> arrHashSet = new HashSet<>();
+        arrHashSet.add("Element1");
+        arrHashSet.add("Element2");
 
         //When:
         Iterator<String> iteratorHashSet= arrHashSet.iterator();
@@ -158,19 +157,19 @@ public class TestHashSet {
         //Then:
         iteratorHashSet.hasNext();
         String strIterator=iteratorHashSet.next();
-        assertEquals("Elemento1",strIterator);
+        assertEquals("Element1",strIterator);
         iteratorHashSet.hasNext();
         strIterator=iteratorHashSet.next();
-        assertEquals("Elemento2",strIterator);
+        assertEquals("Element2",strIterator);
 
     }
     @Test
-    public void givenFortyElementsInHashSet_whenIterator_thenGetSize40() {
+     void givenFortyElementsInHashSet_whenIterator_thenGetSize40() {
 
         //Given:
-        Set<String> arrHashSet = new HashSet<String>();
+        Set<String> arrHashSet = new HashSet<>();
         for (int i = 0; i < 40; i++) {
-            arrHashSet.add("Elemento " + i);
+            arrHashSet.add("Elements " + i);
         }
         int count=0;
 

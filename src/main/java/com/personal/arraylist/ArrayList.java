@@ -2,7 +2,6 @@ package com.personal.arraylist;
 
 import com.personal.Iterator;
 import com.personal.List;
-import com.personal.ReverseIterator;
 
 
 public class ArrayList<T> implements List<T> {
@@ -36,7 +35,7 @@ public class ArrayList<T> implements List<T> {
             T[] arrElements = (T[]) new Object[newSize];
 
             for (int i = 0; i < newSize; i++) {
-                if (i != index && i < index)
+                if (i < index)
                     arrElements[i] = this.elementData[i];
                 else if (i == index)
                     arrElements[i] = element;
@@ -75,13 +74,16 @@ public class ArrayList<T> implements List<T> {
         return this.size;
     }
 
-    public Iterator iterator() {
+    public Iterator<T> iterator() {
         return new ArrayListIterator();
+    }
+
+    public Iterator<T> reverseIterator() {
+        return new ArrayListReverseIterator();
     }
 
     private void grow(int newSize) {
         T[] arrElements = (T[]) new Object[newSize];
-        ;
 
         for (int i = 0; i < this.size; i++) {
             arrElements[i] = this.elementData[i];
@@ -89,12 +91,8 @@ public class ArrayList<T> implements List<T> {
         this.elementData = arrElements;
     }
 
-    private class ArrayListIterator implements Iterator, ReverseIterator {
+    private class ArrayListIterator implements Iterator {
         int cursor;
-        int reverserCursor = size - 1;
-
-        ArrayListIterator() {
-        }
 
         public boolean hasNext() {
             return this.cursor != size;
@@ -105,15 +103,18 @@ public class ArrayList<T> implements List<T> {
             this.cursor++;
             return strElement;
         }
-
-        public boolean hasPrev() {
+    }
+    private class ArrayListReverseIterator implements Iterator{
+        int reverserCursor = size - 1;
+        public boolean hasNext() {
             return reverserCursor >= 0;
         }
 
-        public T previous() {
+        public T next() {
             T strElement = elementData[this.reverserCursor];
             reverserCursor--;
             return strElement;
         }
+
     }
 }

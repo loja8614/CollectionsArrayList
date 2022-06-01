@@ -5,16 +5,15 @@ import com.personal.set.Set;
 import com.personal.set.treeset.TreeSet;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 
-
-public class TestTreeSet {
+class TestTreeSet {
     @Test
-    public void givenNewTreeSet_whenSize_thenZero() {
+     void givenNewTreeSet_whenSize_thenZero() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
 
         //When:
         int size = varTreeSet.size();
@@ -24,10 +23,10 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenNewTreeSet_whenAddNewElement_thenSizeOne() {
+     void givenNewTreeSet_whenAddNewElement_thenSizeOne() {
 
         //Given:
-        Set<Integer> varTreeSet = new TreeSet<Integer>();
+        Set<Integer> varTreeSet = new TreeSet<>();
 
         //When:
         varTreeSet.add(8);
@@ -38,10 +37,10 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenNewTreeSet_whenAddNewTenElement_thenSizeTen() {
+     void givenNewTreeSet_whenAddNewTenElement_thenSizeTen() {
 
         //Given:
-        Set<Integer> varTreeSet = new TreeSet<Integer>();
+        Set<Integer> varTreeSet = new TreeSet<>();
 
         //When:
         varTreeSet.add(47);
@@ -61,10 +60,10 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenNewTreeSet_whenAddNewTenStringElement_thenSizeTen() {
+     void givenNewTreeSet_whenAddNewTenStringElement_thenSizeTen() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
 
         //When:
         varTreeSet.add("Juan");
@@ -85,10 +84,10 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenTenStringElementsInTreeSet_whenContainsPablo_thenTrue() {
+     void givenTenStringElementsInTreeSet_whenContainsPablo_thenTrue() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Maria");
@@ -104,15 +103,15 @@ public class TestTreeSet {
         boolean isPabloPresent = varTreeSet.contains("Pablo");
 
         //Then:
-        assertEquals(isPabloPresent, true);
+        assertTrue(isPabloPresent);
     }
 
 
     @Test
-    public void givenTenElementsInTreeSet_whenRemove12_thenSize9() {
+     void givenTenElementsInTreeSet_whenRemove12_thenSize9() {
 
         //Given:
-        Set<Integer> varTreeSet = new TreeSet<Integer>();
+        Set<Integer> varTreeSet = new TreeSet<>();
         varTreeSet.add(47);
         varTreeSet.add(60);
         varTreeSet.add(22);
@@ -133,10 +132,10 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenTenElementsInTreeSet_whenRemove12_thenNotContains12() {
+     void givenTenElementsInTreeSet_whenRemove12_thenNotContains12() {
 
         //Given:
-        Set<Integer> varTreeSet = new TreeSet<Integer>();
+        Set<Integer> varTreeSet = new TreeSet<>();
         varTreeSet.add(47);
         varTreeSet.add(60);
         varTreeSet.add(22);
@@ -153,14 +152,14 @@ public class TestTreeSet {
         boolean isElementPresent = varTreeSet.contains(12);
 
         //Then:
-        assertEquals(false,isElementPresent);
+        assertFalse(isElementPresent);
     }
 
     @Test
-    public void givenTenElementsInTreeSet_whenRemove52_thenSize9() {
+     void givenTenElementsInTreeSet_whenRemove52_thenSize9() {
 
         //Given:
-        Set<Integer> varTreeSet = new TreeSet<Integer>();
+        Set<Integer> varTreeSet = new TreeSet<>();
         varTreeSet.add(47);
         varTreeSet.add(60);
         varTreeSet.add(22);
@@ -179,14 +178,14 @@ public class TestTreeSet {
         int size = varTreeSet.size();
         boolean isElementPresent = varTreeSet.contains(52);
         assertEquals(size, 9);
-        assertEquals(false,isElementPresent);
+        assertFalse(isElementPresent);
     }
 
     @Test
-    public void givenTenElementsInTreeSet_whenRemove6_thenSize9() {
+     void givenTenElementsInTreeSet_whenRemove6_thenSize9() {
 
         //Given:
-        Set<Integer> varTreeSet = new TreeSet<Integer>();
+        Set<Integer> varTreeSet = new TreeSet<>();
         varTreeSet.add(47);
         varTreeSet.add(60);
         varTreeSet.add(22);
@@ -205,14 +204,14 @@ public class TestTreeSet {
         int size = varTreeSet.size();
         boolean isElementPresent = varTreeSet.contains(6);
         assertEquals(size, 9);
-        assertEquals(false,isElementPresent);
+        assertFalse(isElementPresent);
     }
 
     @Test
-    public void givenFiveElementsInTreeSet_whenRemoveAll_thenSizeZero() {
+     void givenFiveElementsInTreeSet_whenRemoveAll_thenSizeZero() {
 
         //Given:
-        Set<Integer> varTreeSet = new TreeSet<Integer>();
+        Set<Integer> varTreeSet = new TreeSet<>();
         varTreeSet.add(47);
         varTreeSet.add(60);
         varTreeSet.add(22);
@@ -228,10 +227,10 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenFiveElementsInTreeSet_whenContains13_thenFalse() {
+     void givenFiveElementsInTreeSet_whenContains13_thenFalse() {
 
         //Given:
-        Set<Integer> varTreeSet = new TreeSet<Integer>();
+        Set<Integer> varTreeSet = new TreeSet<>();
         varTreeSet.add(47);
         varTreeSet.add(60);
         varTreeSet.add(22);
@@ -242,14 +241,14 @@ public class TestTreeSet {
         boolean isThereElement = varTreeSet.contains(13);
 
         //Then:
-        assertEquals(isThereElement, false);
+        assertFalse(isThereElement);
     }
 
     @Test
-    public void givenFiveElementsInTreeSet_whenContains60_thenTrue() {
+     void givenFiveElementsInTreeSet_whenContains60_thenTrue() {
 
         //Given:
-        Set<Integer> varTreeSet = new TreeSet<Integer>();
+        Set<Integer> varTreeSet = new TreeSet<>();
         varTreeSet.add(47);
         varTreeSet.add(60);
         varTreeSet.add(22);
@@ -260,14 +259,14 @@ public class TestTreeSet {
         boolean isThereElement = varTreeSet.contains(60);
 
         //Then:
-        assertEquals(isThereElement, true);
+        assertTrue(isThereElement);
     }
 
     @Test
-    public void given15ElementsInTreeSet_whenSize_then15() {
+     void given15ElementsInTreeSet_whenSize_then15() {
 
         //Given:
-        Set<Integer> varTreeSet = new TreeSet<Integer>();
+        Set<Integer> varTreeSet = new TreeSet<>();
         varTreeSet.add(47);
         varTreeSet.add(60);
         varTreeSet.add(22);
@@ -292,10 +291,10 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenTenStringElementsInTreeSet_whenRemoveElement_theElementIsNotPresent() {
+     void givenTenStringElementsInTreeSet_whenRemoveElement_theElementIsNotPresent() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Ana");
@@ -308,13 +307,13 @@ public class TestTreeSet {
 
         //Then:
         boolean isPresentElement = varTreeSet.contains("Juan");
-        assertEquals(false, isPresentElement);
+        assertFalse(isPresentElement);
     }
     @Test
-    public void givenTenStringElementsInTreeSet_whenRemoveElement_theSize9() {
+     void givenTenStringElementsInTreeSet_whenRemoveElement_theSize9() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Maria");
@@ -336,10 +335,10 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenTenStringElementsInTreeSet_whenNotInsertElementDuplicated_theSize10() {
+     void givenTenStringElementsInTreeSet_whenNotInsertElementDuplicated_theSize10() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Maria");
@@ -361,10 +360,10 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenTenStringElementsInTreeSet_whenIterate_then10Elements() {
+     void givenTenStringElementsInTreeSet_whenIterate_then10Elements() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Maria");
@@ -391,10 +390,10 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenTenStringElementsInTreeSet_whenRemoveElement_thenIterate9Element() {
+     void givenTenStringElementsInTreeSet_whenRemoveElement_thenIterate9Element() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Maria");
@@ -423,10 +422,10 @@ public class TestTreeSet {
     }
 
     @Test
-    public void givenTenStringElementsInTreeSet_whenRemoveElement_theNotContainsElement() {
+     void givenTenStringElementsInTreeSet_whenRemoveElement_theNotContainsElement() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Maria");
@@ -452,13 +451,13 @@ public class TestTreeSet {
         int size = varTreeSet.size();
         boolean isPresentElement = varTreeSet.contains("Hugo");
         assertEquals(count, size);
-        assertEquals(isPresentElement,false);
+        assertFalse(isPresentElement);
     }
     @Test
-    public void givenTenStringElementsInTreeSet_whenRemoveJuan_theNotContainsJuan() {
+     void givenTenStringElementsInTreeSet_whenRemoveJuan_theNotContainsJuan() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Maria");
@@ -484,14 +483,14 @@ public class TestTreeSet {
         int size = varTreeSet.size();
         boolean isPresentElement = varTreeSet.contains("Juan");
         assertEquals(count, size);
-        assertEquals(isPresentElement,false);
+        assertFalse(isPresentElement);
     }
 
     @Test
-    public void givenTenStringElementsInTreeSet_whenRemoveJulieta_theNotContainsJulieta() {
+     void givenTenStringElementsInTreeSet_whenRemoveJulieta_theNotContainsJulieta() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Maria");
@@ -517,13 +516,13 @@ public class TestTreeSet {
         int size = varTreeSet.size();
         boolean isPresentElement = varTreeSet.contains("Julieta");
         assertEquals(count, size);
-        assertEquals(isPresentElement,false);
+        assertFalse(isPresentElement);
     }
     @Test
-    public void givenTenStringElementsInTreeSet_whenRemoveMaria_theNotContainsMaria() {
+     void givenTenStringElementsInTreeSet_whenRemoveMaria_theNotContainsMaria() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Maria");
@@ -549,13 +548,13 @@ public class TestTreeSet {
         int size = varTreeSet.size();
         boolean isPresentElement = varTreeSet.contains("Maria");
         assertEquals(count, size);
-        assertEquals(isPresentElement,false);
+        assertFalse(isPresentElement);
     }
     @Test
-    public void givenTenStringElementsInTreeSet_whenRemoveAna_theNotContainsAna() {
+     void givenTenStringElementsInTreeSet_whenRemoveAna_theNotContainsAna() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Maria");
@@ -581,13 +580,13 @@ public class TestTreeSet {
         int size = varTreeSet.size();
         boolean isPresentElement = varTreeSet.contains("Ana");
         assertEquals(count, size);
-        assertEquals(isPresentElement,false);
+        assertFalse(isPresentElement);
     }
     @Test
-    public void givenTenStringElementsInTreeSet_whenRemoveRosa_theNotContainsRosa() {
+     void givenTenStringElementsInTreeSet_whenRemoveRosa_theNotContainsRosa() {
 
         //Given:
-        Set<String> varTreeSet = new TreeSet<String>();
+        Set<String> varTreeSet = new TreeSet<>();
         varTreeSet.add("Juan");
         varTreeSet.add("Alejandra");
         varTreeSet.add("Maria");
@@ -613,7 +612,7 @@ public class TestTreeSet {
         int size = varTreeSet.size();
         boolean isPresentElement = varTreeSet.contains("Rosa");
         assertEquals(count, size);
-        assertEquals(isPresentElement,false);
+        assertFalse(isPresentElement);
     }
 
 }
